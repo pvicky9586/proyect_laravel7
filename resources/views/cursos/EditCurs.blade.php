@@ -77,7 +77,8 @@
         </div>
               
 		<div style="margin-left:5%; margin-top:5%;">
-			<h1> Duraccion<input type="text" name="duracion" size="10" value="{{ $edit->duracion }}"  placeholder="Ejem: 5 hras">  </h1> 
+			<h1> Duraccion
+			<input type="text" name="duracion" size="10" value="{{ $edit->duracion }}"  placeholder="Ejem: 5 hras">  </h1> 
        </div> 
        <br>
        <div style="display:flex;">

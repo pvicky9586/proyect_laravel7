@@ -139,7 +139,7 @@ class CursController extends Controller
 					$Eliminar= App\Curso_resps::where('curso_id','=',$update->id )->first();
 					$Eliminar->delete();  								    	
 			     }
-			}  				
+			} 				
 			if ($request->cant_resps == 1){  
 				$request->validate([ 'resp' => 'required']); 				
 				$New = new App\Curso_resps;  
