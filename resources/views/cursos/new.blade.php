@@ -12,7 +12,7 @@
 		@endif    
 <div class="toll">	
 	<div  class="form_new">		              
-		<form class="form-horizontal" method="POST" action="{{ route('SaveCurso') }}" name="formulario" id="formulario" onsubmit="return confirm('¿confirmar si desea guardar?');">
+		<form class="form-horizontal" method="POST" action="{{ route('SaveCurso') }}" name="formulario" id="formulario" enctype="multipart/form-data" onsubmit="return confirm('¿confirmar si desea guardar?');">
 			{{ csrf_field() }}
 	            @error('title')
 					<span class="alert alert-danger" style="font-size:12px;">{{ $message }}</span>
@@ -25,6 +25,7 @@
 					<textarea  name="description" placeholder="Descripcion/Intencion o proposito del curso" value="{{ old('description') }}"></textarea>
 				</div>	
 		Abjuntar Imagen<input type="file" name="img" accept="image/png, .jpeg, .jpg, image/gif"/><br><br>
+					
 		<br>
 		<div style="display:flex;font-weight:bold;">		
 				<div class="resp" onclick="SelecDinam()" id="Resp">

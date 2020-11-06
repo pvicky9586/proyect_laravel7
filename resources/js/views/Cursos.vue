@@ -8,7 +8,7 @@
 		
 	       <div class="listCurs" style="height:300px; border-top: 1px solid;">     			
 			<h1 style="color:#2D2D84; font-size:36px; " align="center">{{ curso.title }}</h1>													 
-			<img :src="`images/Img-cursos/${curso.img}`"  class="img-cursoVue" align="right" alt="NO ah asignado imagen o no se encontro"/> 
+			<img :src="`storage/${curso.img}`"  class="img-cursoVue" align="right" alt="NO ah asignado imagen o no se encontro"/> 
 					
 			<div style="margin-left:5%; margin-right:15%;">
 				<details>

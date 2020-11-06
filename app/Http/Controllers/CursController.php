@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
+use FilesystemIterator ;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Auth;
 use App;
 class CursController extends Controller
@@ -36,8 +39,14 @@ class CursController extends Controller
 				$NewCurso = new App\Cursos;				
 				$NewCurso->title = $request->title;
 				$NewCurso->description = $request->description;
-				$NewCurso->duracion = $request->duracion;				
-				$NewCurso->img = $request->img;
+				$NewCurso->duracion = $request->duracion;	
+				if($request->file('img')){ 
+					$pash = Storage::disk('public')->put('cursos',$request->file('img'));  
+					if ($pash){  
+		                $NewCurso->img = $pash;
+		               } 
+				}
+				
 				$NewCurso->cant_resps = $request->cant_resps; 
 				$NewCurso->user_created = Auth::user()->id;
 				$NewCurso->statud = $request->statud;
@@ -112,8 +121,11 @@ class CursController extends Controller
 			$update->description = $request->description;  
 			$update->duracion = $request->duracion; 
 			$update->statud = $request->statud; 
-			if (!empty($request->img)){
-				$update->img = $request->img;
+			if($request->file('img')){ 
+				$pash = Storage::disk('public')->put('cursos',$request->file('img'));  
+				if ($pash){  
+		            $update->img = $pash;
+		         } 
 			}
 			$update->cant_resps = $request->cant_resps; 
 			$update->user_updated = Auth::user()->id;
@@ -122,14 +134,12 @@ class CursController extends Controller
 
 			$BuscResp = App\Curso_resps::where('curso_id','=',$update->id )->get();  		
 			$Num = $BuscResp->count();
-			     
-			if (!empty($BuscResp) and ($Num > 0)){
-				 for($i=0; $i<=$Num; $i++){      //busco registro en la tabla
+			if (isset($BuscResp) and $Num > 0){
+				for($i=1; $i<=$Num; $i++){ 
 					$Eliminar= App\Curso_resps::where('curso_id','=',$update->id )->first();
-					$ArrayEliminar[] = $Eliminar;     // lo almaceno en un array
-					$ArrayEliminar[$i]->delete();        //elimino uno a uno segun su posicion
-				} 
-			}		
+					$Eliminar->delete();  								    	
+			     }
+			}  				
 			if ($request->cant_resps == 1){  
 				$request->validate([ 'resp' => 'required']); 				
 				$New = new App\Curso_resps;  
@@ -154,7 +164,7 @@ class CursController extends Controller
 		return redirect()->route('cursos')->with('mensaje','Curso Actualizado');
 		}
 		
-	  return redirect()->route('cursos');
+	return redirect()->route('cursos');
 	}
 
  

@@ -12,7 +12,7 @@
   
 <div class="tool">	
   <div  class="form_edit">		              
-	<form class="form-horizontal" method="POST" action="{{ route('UpCurso', $edit->id) }}" name="formulario" onsubmit="return confirm('¿Desea Actualizar?');" id="formulario">
+	<form class="form-horizontal" method="POST" action="{{ route('UpCurso', $edit->id) }}" name="formulario" enctype="multipart/form-data" onsubmit="return confirm('¿Desea Actualizar?');" id="formulario">
 	@method('PUT')
     @csrf
 		@error('title')
@@ -34,19 +34,20 @@
 			
 						 
 			@if($edit->img == '')
-				Abjuntar Imagen<input type="file" name="img" value="" id="miArchivo" accept="image/png, .jpeg, .jpg, image/gif"> 
+				Abjuntar Imagen
+				<input type="file" name="img" value="" id="miArchivo" accept="image/png, .jpeg, .jpg, image/gif"> 
 			@else
 				<div style="display:flex; padding-left:2%;">	
 					<label style="margin-top:5%;">Cambiar Imagen </label>
-					<input type="file" name="img" value="" id="miArchivo" style="color: transparent; margin-top:5%;" accept="image/png, .jpeg, .jpg, image/gif">  
-					<img src="/images/Img-cursos/{{$edit->img}}" alt="" class="img-curso">  	
+					<input type="file" name="img" value="" id="miArchivo" style="color: transparent; margin-top:5%;" accept="image/png, .jpeg, .jpg, image/gif">   
+					<img src=" {{ Storage::url("$edit->img")}}" alt="Imagen no encontada" class="img-curso"/>	
 				</div>
 			@endif
 		 
 		
 		
 	
-		
+		         <h3 style="margin-top:3%; color: #F1671D;">Volver a configurar el/los Resposable(s) del curso<span> de lo conrio no habra registro</span>:</h3> 
 		    @error('resp')
 				<h3 style="margin-top:3%; color: #F1671D;">Debe volver a configurar el/los Resposable(s) del curso<span>de lo conrio no habra registro</span>:</h3> 
 			@enderror

@@ -33,7 +33,9 @@
 							
 								<div align="center">
 									<label style="font-size:30px;"><a href="" title="Ver detalles" ><?php echo (strtoupper($item->title)) ?></a> </label>
-									<small style="font-size:16px;"><img src="/images/Img-cursos/{{$item->img}}" alt="Imagen No disponible" class="img-curso" align="right" title="imagen del curso"></small> 
+									<small style="font-size:16px;">
+										<img src=" {{ Storage::url("$item->img")}}" alt="Imagen No disponible" class="img-curso" align="right" title="imagen del curso">
+									</small> 
 								</div> 
 								<div class="desc">
 								@if (!empty($item->description))
