@@ -1,0 +1,74 @@
+	<header>
+		<h1>Astudillo's Group</h1>
+		
+		@if (!(Auth::guest()))	
+			<li><a href="{{ route('login') }}">Acceder</a></li>
+			<!-- <li><a href="{{ route('register') }}">Registrarse</a></li>-->
+		@elseif (Auth::user())	
+			<div style="float: right; margin-right: 5%; margin-top: 3%;  ">
+				<label class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+				<span class="name_user2" > {{ Auth::user()->username }} </span></a><br><br>
+				@if ((Auth::user()->privileges) === 1)
+					<div>
+						<a href="{{ route('AdmUser') }}" class="admuser"><img src="{{ asset('images/ajustes.png') }}" width="40" height="45"> Adm. Usuarios</a>
+					</div>
+				@endif
+			 <ul class="dropdown-menu" role="menu">
+				<li>
+				  <a href="{{ route('logout') }}" class="salir" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar Seccion</a>
+				  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}  </form>
+				</li>
+				</label>
+			</div>
+		
+
+		@endif
+
+</header>
+
+
+		$authUser = App\User::where('username','=',$request->login)->first();
+			$authEmail = App\User::where('email','=',$request->login)->first();
+			 
+			if($authUser){
+				$login = App\User::findOrFail($authUser->id);
+				return view('welcome',compact('login'));				
+			}
+			if ($authEmail) {
+				$login = App\User::findOrFail($authEmail->id);
+				return view('welcome',compact('login'));
+			}
+
+
+
+
+
+
+
+
+$login = $request->input($this->username());
+
+// Comprobar si el input coincide con el formato de E-mail
+$field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+
+
+
+
+
+
+
+
+
+			$authUser = App\User::where('username','=',$request->login)->first();
+			$authEmail = App\User::where('email','=',$request->login)->first();
+			 
+			if($authUser){
+				$auth = App\User::findOrFail($authUser->id);
+				return view('welcome',compact('auth'));
+				
+			}
+			if ($authEmail) {
+				$auth = App\User::findOrFail($authEmail->id);
+				return view('welcome',compact('auth'));
+			}
+			
