@@ -21,7 +21,7 @@
 <header> 
 	<div>
 		<video   autoplay loop muted >
-			<source src="{{ asset('images/Header.mp4') }}" type="video/mp4">
+			<source src="{{ Storage::url("Header.mp4")}}" type="video/mp4">
 		</video>
 	</div>  
 </header> 	
@@ -37,35 +37,43 @@
 	
 	 <div class="bar-left" > 
 		 <div class="auth"> 
-		        	@if (Auth::user())  
-			 
-				<a href="{{ route('welcome')}}"  style="color: #0000FF;  padding-right:10px;" data-toggle="dropdown" role="button" aria-expanded="false">
-				<?php echo  (strtoupper (Auth::user()->username) )?></a>
-				    
-					@if ((Auth::user()->privileges) === 1)
-					      <div align="center" >
-							<a href="{{ route('AdmUser') }}" class=""style=" ">
-							<img src="{{ asset('images/ajustes.png') }}" width="30" height="35" >  Adm > Usuarios | Cursos | Participants</a>
-						 </div>
-				   @endif	
-				   
+		     @if (Auth::user()) 			 
+				 	<a href="{{ url('/logout') }}"  class="user-auth" data-toggle="dropdown" role="button" aria-expanded="false"> 
+						<?php echo  (strtoupper (Auth::user()->username) )?>
+				    </a>
+				
+				
+				@if ((Auth::user()->privileges) === 1)
+					<div align="center" >
+						<a href="{{ route('AdmUser') }}" class=""style="font-size:16px; ">
+							<img src="{{ asset('images/ajustes.png') }}" width="30" height="35" >  Adm > Usuarios | Cursos | Participants
+						</a>
+				    </div>
+				@endif
 				<ul class="dropdown-menu" role="menu"><!--dejo abierto 'ul' -->
-				<li>
-					<a href="{{ route('logout') }}" class="salir" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="salir">Cerrar Seccion</a>
-					<form id="logout-form" action="{{ route('logout') }} " method="POST">{{ csrf_field() }}  </form>
+				
+				
+				<li> 
+					<a href="{{ route('logout') }}" class="salir" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="Salir">Cerrar Seccion</a>
+					<form id="logout-form" action="{{ route('logout') }} " method="POST">{{ csrf_field() }}  </form> 
 				</li>
+					
 								
 			  @else 
-				<a href="{{ route('login') }}"  style="color:#FFA500;"><img src="images/acceso.png">Acceder</a>
+				<a href="{{ route('login') }}"  style="color:#0000FF;"><img src="{{asset('images/acceso.png')}}">Acceder</a>
 			  @endif   		    	
 			</div>
 		
-	             <br><br>
-			  <div>
-				<a href="{{ route('AV-livew')}}"> <img src="{{ asset('images/av2.jpeg')}}" class="img-left" title="entrar al Aula Virtual"></a> 
+	           <br><br>
+			<div>
+				<a href="{{ route('AV-livew')}}"> 
+					<img src="{{ asset('images/av2.jpeg')}}" class="img-left" title="entrar al Aula Virtual">
+				</a> 
 			     <br><br>
 		
-				<a href="">  <img src="{{ asset('images/Asociados.png')}}" class="img-left" title="Asociados"></a>	
+				<a href="">  
+					<img src="{{ asset('images/Asociados.png')}}" class="img-left" title="Asociados">
+				</a>	
 			</div>    	
 	</div>
  
@@ -87,6 +95,11 @@
 	
 			<!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    
+    
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
 

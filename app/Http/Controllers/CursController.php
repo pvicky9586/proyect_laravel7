@@ -27,15 +27,11 @@ class CursController extends Controller
 		return view('cursos/new',compact('resp'));		
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request){
         if(isset($_POST['btnsave'])){
-				$request->validate([ 'title' => 'required']);
+				$request->validate([ 'title' => 'required', 'img' => 'image|max:1024', // 1MB Max
+        ]);
 				$NewCurso = new App\Cursos;				
 				$NewCurso->title = $request->title;
 				$NewCurso->description = $request->description;
@@ -109,18 +105,14 @@ class CursController extends Controller
     
     
 
-    public function update(Request $request, $id) {
-    
-                  
-			if(isset($_POST['btnsave'])){   
-				
-			$request->validate([ 'title' => 'required']);
-			$update = App\Cursos::findOrFail($id);  
-				  
-			$update->title = $request->title;
-			$update->description = $request->description;  
-			$update->duracion = $request->duracion; 
-			$update->statud = $request->statud; 
+    public function update(Request $request, $id) {                   
+			if(isset($_POST['btnsave'])){  				
+				$request->validate([ 'title' => 'required']);
+				$update = App\Cursos::findOrFail($id); 					  
+				$update->title = $request->title;
+				$update->description = $request->description;  
+				$update->duracion = $request->duracion; 
+				$update->statud = $request->statud; 
 			if($request->file('img')){ 
 				$pash = Storage::disk('public')->put('cursos',$request->file('img'));  
 				if ($pash){  
@@ -169,32 +161,11 @@ class CursController extends Controller
 
  
  
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
     public function destroy($id)
     {
         //
     }
     
-    
-		
-		
-		
-		
 		
 		
 		

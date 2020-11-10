@@ -21,7 +21,7 @@
 <header> 
 	<div>
 		<video   autoplay loop muted >
-			<source src="{{ asset('images/Header.mp4') }}" type="video/mp4">
+			<source src="{{ Storage::url("Header.mp4")}}" type="video/mp4">
 		</video>
 	</div>  
 </header> 	

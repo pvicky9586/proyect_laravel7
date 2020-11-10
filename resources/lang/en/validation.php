@@ -113,7 +113,7 @@ return [
     'starts_with'          => 'Debe comenzar con uno de los siguientes valores: :values',
     'string'               => 'Debe ser una cadena de caracteres.',
     'timezone'             => 'Debe indicar una zona horaria válida.',
-    'unique'               => 'Este nombre ya esta en uso.',
+    'unique'               => ':attribute ya esta en uso',
     'uploaded'             => 'El campo :attribute no se pudo subir.',
     'url'                  => 'La url ingresada no es válida.',
     'uuid'                 => 'Debe ser un UUID válido.',

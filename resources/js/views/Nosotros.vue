@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<div id="cont">
-		  <div> <img src="images/logo.png"  width="300">  </div>
+		  <div> <img src="storage/images/logo.png"  width="300">  </div>
 		  <div align="center" class="hola">¡Hola amigos y amigas!    
 		  <p>&nbsp;&nbsp;&nbsp;&nbsp;Somos un equipo 100% comprometidos en brindarles la oportunidad que se ha planteado en pro de su crecimiento tanto personal como profesional</p>	 </div>
          </div> 

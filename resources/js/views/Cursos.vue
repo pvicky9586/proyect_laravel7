@@ -2,7 +2,7 @@
 <div>
         
   
-             <div> <img src="images/logo.png"  width="300">  </div>
+             <div> <img src="storage/images/logo.png"  width="300">  </div>
 
 	<div v-for="(curso, index) in cursos" :key="curso.id"> 
 		

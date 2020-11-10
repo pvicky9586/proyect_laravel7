@@ -56,10 +56,12 @@
 					<input type="radio" id="Resp" name="cant_resps" value="1" onclick="SelecDinam()">Uno
 					<input type="radio" id="Resp" name="cant_resps"  value="2" onclick="SelecDinam()">varios				
 			</div>	
-				<div  align="center" class="Add-Resp" >
-					Si responsable no esta en la lista debe agregarlo, para agregarlo de 
-					 <a href="{{ route('responsabls') }}">click aqui</a>
-				</div>
+			<div  align="center" class="Add-Resp" >
+					Si responsable No esta en la lista de <a href="{{ route('resp-livew')}}" title="Responsabls">click aqui</a>
+<!--
+					<a href="{{ route('responsabls') }}">
+-->
+			</div>
 			</div>	
 		
 		<div id="uno" style="display:none; padding:10;"> 		

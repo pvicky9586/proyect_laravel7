@@ -13,12 +13,12 @@
 				Click aqui</a> para entrar a la seccion de cursos
 	</div>
 	
-	      <a href="{{ route('resp-livew')}}">Responsables</a>
+	      <a href="{{ route('resp-livew')}}" title="Responsabls">Responsables</a>
 	
 	   <!-- PARTICIPANTS -->
 	
    <div  style="font-size:20px; text-align:center; margin-right:5%;" >
-		<a href="{{ route('participants') }}">
+		<a href="{{ route('part-livew') }}">
 			<img src="{{asset('images/participants.jpg')}}" width="400" height="300" style="opacity:0.5;"><br>
 			Participants
 		</a>

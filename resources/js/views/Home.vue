@@ -3,7 +3,7 @@
   
     <div style="display: flex; margin-right:5%;">
 		<div>
-			<img src="images/logo.png" width="500" />
+			<img src="storage/images/logo.png" width="500" />
          </div>
          <div>
 			 <div align="center" class="tite">

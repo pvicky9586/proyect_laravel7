@@ -53,7 +53,7 @@ video {
 	scroll-behavior: smooth;
 	height:100vh;
 */
-
+             
 .edit{ 
 	width:60; 
 	height:58;}
@@ -76,10 +76,11 @@ footer{width: 100%; background-color: RGBA(0, 0, 0, 0.75); margin-top:2%;}
 .img-bt-new{  width:130px; height:100px;}
 .img-bt-user{  width:50px; height:60px;}
 .img-curso{ width:300px; height:250px; }
+.img-AddNew{ width:130px; height:150px; margin-left:5%;}
 .img-cursoVue{ width:400px; height:280px;}
 .img-logoVue{ width:200px; height:150px;}
 .inputAuth{padding:30; font-size:20px; font-weight: bold;}
-
+.info{ font-size:1.5rem;background:#C1DFE9; padding:2%; border-radius: 20px;}
 
 
 .login{ width:5000px; 	margin-top: 2%; 	float:center;	}
@@ -94,6 +95,8 @@ footer{width: 100%; background-color: RGBA(0, 0, 0, 0.75); margin-top:2%;}
 	text-decoration:none;
 	color:black;	}
 	.link-priv:hover{ color:#FFA500; text-decoration:none; }
+.user-auth{ color: #0000FF; font-size:1.5rem; padding-right:10px;}
+.auth-name{ color: #E9C80C; font-size:1rem; }
 	
 .listCurs{  height:150px; 
 	border-top:2px solid;
@@ -111,11 +114,15 @@ footer{width: 100%; background-color: RGBA(0, 0, 0, 0.75); margin-top:2%;}
 	
 .img-priv{ width:20px; height:15px;}
 
-.auth-name{ color: #E9C80C; font-size:1rem; }
+
 .publicNo{ display:block; margin-right:5%; color: #FF0000; font-size:1.5rem;}	
+
 .publicSi{display:block; margin-right:5%; color: #008000;}
-table, th, td {  border: 1px solid black; font-size:16px; }
+
+table, th, td {  border: 1px solid black; font-size:16px; width:auto;}
+
 .text-inp{ font-size:1.rem; padding:4%;}
+
 .title{ font-family: fantasy; 
 		font-size: 3rem;   
 		color: #000066; 
@@ -124,7 +131,8 @@ table, th, td {  border: 1px solid black; font-size:16px; }
 		letter-spacing: 2pt;
 		margin-top:10px;}
 .title-2{ font-family: fantasy; 
-		font-size: 1.5rem;   
+		font-size: 1.5rem;
+		color: #003466;   
 		text-align: center;
 		letter-spacing: 1pt;}
 .tex-bt:hover{ 
@@ -137,7 +145,14 @@ table, th, td {  border: 1px solid black; font-size:16px; }
 	width: 100%;  
 	margin:0; 
 	margin-top:1%; 
-	padding-top:5px;}
+	padding-top:0;}
+
+
+.tool-liv{   	 
+	width: 100%;
+	margin:0;}
+
+.tool-table{width: 100%; margin-right:2%;}	
 	
 .resp{ 
 	display:flex;

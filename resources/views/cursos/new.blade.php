@@ -24,7 +24,11 @@
 					
 					<textarea  name="description" placeholder="Descripcion/Intencion o proposito del curso" value="{{ old('description') }}"></textarea>
 				</div>	
-		Abjuntar Imagen<input type="file" name="img" accept="image/png, .jpeg, .jpg, image/gif"/><br><br>
+		Abjuntar Imagen<input type="file" name="img" accept="image/png, .jpeg, .jpg, image/gif"/>
+		  @error('img')
+				<span class="alert alert-danger" style="font-size:12px;">{{ $message }}</span>
+		  @enderror
+		<br><br>
 					
 		<br>
 		<div style="display:flex;font-weight:bold;">		
@@ -34,7 +38,10 @@
 					<input type="radio" id="Resp" name="cant_resps"  value="2">varios?					
 				</div>	
 					<div  align="center" class="Add-Resp" >
-					Si responsable No esta en la lista de <a href="{{ route('responsabls') }}">click aqui</a>
+					Si responsable No esta en la lista de <a href="{{ route('resp-livew')}}" title="Responsabls">click aqui</a>
+<!--
+					<a href="{{ route('responsabls') }}">
+-->
 				</div>
 		</div>	
 	

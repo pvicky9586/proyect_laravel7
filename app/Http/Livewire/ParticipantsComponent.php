@@ -1,36 +1,34 @@
 <?php
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Responsabls;
+use App\Participants;
 use Auth;
- 
-   
-class ResponsablsComponent extends Component
+
+
+class ParticipantsComponent extends Component
 {
-	 use WithPagination;
 	
-	public $resp_id, $cedula, $name, $last_name, $email, $telef, $NroWp;
+	 use WithPagination;
+	  
+	public $part_id, $cedula, $name, $last_name, $email, $telef, $NroWp;
 	public $view = 'create';
-	 
-	 
+	
     public function render()
     {
-		return view('livewire.responsabls-component', ['resps'=> Responsabls::orderBy('id','desc')->simplepaginate(5) 
+       return view('livewire.participants-component', ['parts'=> Participants::orderBy('id','desc')->simplepaginate(10) 
 		]);
-     }
-     
-     
+    }
+    
      public function store() {
 		$this->validate(['cedula' => 'required']);
-		 if ($this->email){
-			   	$this->validate([ 'email' => 'email']);
+		 if (($this->email) || ($this->telef)){
+			   	$this->validate([ 'email' => 'email', 'telef' => 'telef']);  			 
 		 }
-		 if ($this->telef){
-			 $this->validate([ 'telef' => 'telef']);  			 
-		 }		
-		$resps = Responsabls::create([
+		 
+		$resps = Participants::create([
 		'cedula' => $this->cedula,
 		'name' => $this->name,	
 		'last_name' => $this->last_name,
@@ -44,21 +42,19 @@ class ResponsablsComponent extends Component
 			//$this->name= '';
 			//$this->last_name= '';
 		$this->default();
-			return back()->with('mensaje','Datos Registrados');	
-			
+			return back()->with('mensaje','Datos Registrados');			
 	}
      
      
      public function edit($id){
-		$resp= Responsabls::find($id); 	
-		$this->resp_id	= $resp-> id;
-		$this->cedula = $resp->cedula;
-		$this->name = $resp->name;
-		$this->last_name = $resp->last_name;
-		$this->email = $resp->email;
-		$this->telef = $resp->telef;
-		$this->NroWp = $resp->NroWp;
-				
+		$part= Participants::find($id); 	
+		$this->part_id	= $part-> id;
+		$this->cedula = $part->cedula;
+		$this->name = $part->name;
+		$this->last_name = $part->last_name;
+		$this->email = $part->email;
+		$this->telef = $part->telef;
+		$this->NroWp = $part->NroWp;		
 		$this->view = 'edit';		
 	} 
 	
@@ -70,9 +66,8 @@ class ResponsablsComponent extends Component
 		 if ($this->telef){
 			 $this->validate([ 'telef' => 'telef']);  			 
 		 }
-		$resp = Responsabls::find($this->resp_id); 	
-		
-		$resp->update([
+		$part = Participants::find($this->part_id); 		
+		$part->update([
 			'cedula' => $this->cedula,
 			'name' => $this->name,
 			'last_name' => $this->last_name,
@@ -88,10 +83,8 @@ class ResponsablsComponent extends Component
      
 	
    public function destroy ($id){
-		Responsabls::destroy($id);  
+		Participants::destroy($id);  
 	}
-	
-	
 	
 	public function default(){
 		$this->cedula = '';
@@ -102,22 +95,17 @@ class ResponsablsComponent extends Component
 		$this->NroWp = '';
 		$this->view = 'create';		
 	}
-	
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
-
-//en view -> wire:model="search"
-
-//public $search = 'Jerad Schmidt';
-
-    //public function render()
-    //{
-        //return view('livewire.posts-page', [
-            //'posts' => Post::where(
-                //'title', 'LIKE', '%' . $this->search . '%'
-            //)->orWhere(
-                //'body', 'LIKE', '%' . request('search') . '%'
-            //)->get()
-        //]);
-    //}
