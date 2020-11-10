@@ -7,19 +7,21 @@
              <!-- CURSOS -->
 <div class="toll" style="margin-top:10%;">	
 	
-	<div  style="margin-right:5%;">
-		<img src="{{ asset('images/cursos-online.jpeg') }}"  width="500" height="300"/> <br>
+	<div  style="">
+		<img src="{{ asset('images/cursos-online.jpeg') }}"  width="400" height="300" style="opacity:0.5;"> <br>
 		<a href="{{ route('cursos') }}" style="font-size:24px;">  
 				Click aqui</a> para entrar a la seccion de cursos
 	</div>
+	    <div>
+	      <a href="{{ route('resp-livew')}}" title="Responsabls"><img src="{{asset('images/resp.png')}}" width="150" height="300" ><br>Responsables</a>
 	
-	      <a href="{{ route('resp-livew')}}" title="Responsabls">Responsables</a>
-	
+	  </div>
+	  
 	   <!-- PARTICIPANTS -->
 	
-   <div  style="font-size:20px; text-align:center; margin-right:5%;" >
+   <div  style="font-size:20px; text-align:center;" >
 		<a href="{{ route('part-livew') }}">
-			<img src="{{asset('images/participants.jpg')}}" width="400" height="300" style="opacity:0.5;"><br>
+			<img src="{{asset('images/participants.jpg')}}" width="400" height="300" style="opacity:0.3;"><br>
 			Participants
 		</a>
 	</div>
