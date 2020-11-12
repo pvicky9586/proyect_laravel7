@@ -21,18 +21,23 @@
 	 
        <small style="color:#0000FF;">Información de contacto</small>
      
-     <div style="font-size:1.5rem;background:#C1DFE9; padding:2%; 	border-radius: 20px;">
-		   E-mail
-			 <input type="email" class="form-control" wire:model="email"  autocomplete="on" style=" font-size: 2rem;" > 
-				@error('email')
-					<label class="alert-danger"> E-mail no valido</label>
-				@enderror
-			Telefono
-			  <input type="text" class="form-control"  wire:model="telef"  autocomplete="on"  onkeyUp="return ValNumero(this);" style=" font-size: 2rem;" >  
-				 @error('telef')
-					<span class="alert-danger"> Numero no valido!!</span>
-				@enderror  
-     </div>
+       
+     <div class="info">   		 			
+				 <DIV>E-mail
+					<input type="email" class="form-control" wire:model="email"  autocomplete="on" style=" font-size: 2rem;" > 
+					 @error('email')
+						<label class="alert-danger"> E-mail no valido</label>
+					@enderror
+				 </DIV>
+				<div>Telefono
+				<input type="text" class="form-control"  wire:model="telef"  autocomplete="on"  onkeyUp="return ValNumero(this);" style=" font-size: 2rem;" >  
+	    
+                 </div>
+                <div>
+					<label>WhatsApp</label> 
+					<input  type="text" wire:model="NroWp" class="form-control" style=" font-size: 2rem;" />
+	            </div>
+	 </div>
 
  </div>
 <script src="{{ asset('js/validar.js') }}"></script>

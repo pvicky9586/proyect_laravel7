@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Livewire;
+namespace App\Http\Controllers\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -13,23 +13,24 @@ class ResponsablsComponent extends Component
 	
 	public $resp_id, $cedula, $name, $last_name, $email, $telef, $NroWp;
 	public $view = 'create';
-	 
+	public $searchResp = '';
 	 
     public function render()
     {
-		return view('livewire.responsabls-component', ['resps'=> Responsabls::orderBy('id','desc')->simplepaginate(5) 
+		return view('livewire.responsabls-component', [
+			'resps'=> Responsabls::where(function($sub_query)
+			{
+				$sub_query->where('name','like', '%'.$this->searchResp.'%')
+				->orWhere('last_name','like', '%'.$this->searchResp.'%');
+				})->orderBy('id','desc')->simplepaginate(10) 
 		]);
      }
-     
      
      public function store() {
 		$this->validate(['cedula' => 'required']);
 		 if ($this->email){
-			   	$this->validate([ 'email' => 'email']);
-		 }
-		 if ($this->telef){
-			 $this->validate([ 'telef' => 'telef']);  			 
-		 }		
+			  $this->validate([ 'email' => 'email']);  			 
+			}	
 		$resps = Responsabls::create([
 		'cedula' => $this->cedula,
 		'name' => $this->name,	

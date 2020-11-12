@@ -5,16 +5,21 @@
 						{{ session('mensaje') }}
 					</div>
 				 @endif
-				 <br><br>
-	<table class="table">
-		<thead class="thead-dark">
-		<tr align="center">
+				 <br>
+                <div align="right">
+					
+			    </div>   
+	<input type="text" class="search-input"  wire:model="searchPart"  placeholder="Buscar" >                            
+	<table class="table">   		
+		<thead class="thead-dark"> 			
+		<tr align="center">        			
 			<th>Nombres(s)</th>
 			<th>Apellido(s)</th>
 			<th>Accion</th>
 		</tr>
-	</thead>
-	<tbody>
+		</thead>
+		<tbody> 
+@if($parts->count())
 		@foreach($parts as $part)
 		<tr>
 			<td>{{ $part->name }}</td>
@@ -32,11 +37,14 @@
 		@endforeach
 
 	</tbody>
-
-
+@else
+	<h1>No hay registros</h1>
+@endif
 
 </table>
      <div style="color:blue;">
 			{{ $parts->links() }}
      </div>
  </div>
+    
+  

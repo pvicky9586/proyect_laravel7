@@ -119,8 +119,11 @@ footer{width: 100%; background-color: RGBA(0, 0, 0, 0.75); margin-top:2%;}
 
 .publicSi{display:block; margin-right:5%; color: #008000;}
 
-table, th, td {  border: 1px solid black; font-size:16px; width:auto;}
-
+table, th, td {  border: 1px solid black; font-size:2rem; }
+tr td:last-child{
+       width:1%;
+       white-space:nowrap;
+}
 .text-inp{ font-size:1.rem; padding:4%;}
 
 .title{ font-family: fantasy; 
@@ -130,6 +133,7 @@ table, th, td {  border: 1px solid black; font-size:16px; width:auto;}
 		text-align: center;
 		letter-spacing: 2pt;
 		margin-top:10px;}
+
 .title-2{ font-family: fantasy; 
 		font-size: 1.5rem;
 		color: #003466;   
@@ -167,3 +171,4 @@ table, th, td {  border: 1px solid black; font-size:16px; width:auto;}
 .salir{ 
 	color:red;
 	font-size:1.3rem;}
+.search-input{ font-weight: bold; font-size:1.5rem; width:100%;}

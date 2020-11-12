@@ -5,7 +5,8 @@
 			{{ session('mensaje') }}
 		</div>
 	 @endif
-	<br><br> <br>
+	<br>
+	<input type="text" class="search-input" wire:model="searchResp" placeholder="Buscar" >
 	<table class="table">
 		<thead class="thead-dark">
 		<tr align="center">

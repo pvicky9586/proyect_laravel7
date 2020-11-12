@@ -2,22 +2,25 @@
 @section('title','- Usuarios ')
 @section('content')
 
-<div class="title" ><b>Usuario | Cursos | Paticipantes</b></div>
+<div class="title" ><b>Usuario | Cursos | Paticipantes | Responsables</b></div>
 	
-             <!-- CURSOS -->
+           
 <div class="toll" style="margin-top:10%;">	
-	
-	<div  style="">
+	               <!-- CURSOS -->
+	<div  style="font-size:20px; text-align:center;">
 		<img src="{{ asset('images/cursos-online.jpeg') }}"  width="400" height="300" style="opacity:0.5;"> <br>
 		<a href="{{ route('cursos') }}" style="font-size:24px;">  
-				Click aqui</a> para entrar a la seccion de cursos
+				Click aqui</a><BR> para entrar a la seccion de cursos
 	</div>
-	    <div>
-	      <a href="{{ route('resp-livew')}}" title="Responsabls"><img src="{{asset('images/resp.png')}}" width="150" height="300" ><br>Responsables</a>
+				<!-- RESPONSABLS -->
+	 <div style="font-size:20px; text-align:center;">
+	      <a href="{{ route('resp-livew')}}" title="Responsabls">
+			  <img src="{{asset('images/resp.png')}}" width="150" height="300" ><br>Responsables
+		  </a>
 	
-	  </div>
+	 </div>
 	  
-	   <!-- PARTICIPANTS -->
+				<!-- PARTICIPANTS -->
 	
    <div  style="font-size:20px; text-align:center;" >
 		<a href="{{ route('part-livew') }}">

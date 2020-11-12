@@ -22,18 +22,21 @@
        <small style="color:#0000FF;">Información de contacto</small>
      
      <div class="info">   		 			
-				 E-mail
-				<input type="email" class="form-control" wire:model="email"  autocomplete="on" style=" font-size: 2rem;" > 
+				 <DIV>E-mail
+					<input type="email" class="form-control" wire:model="email"  autocomplete="on" style=" font-size: 2rem;" > 
 					 @error('email')
 						<label class="alert-danger"> E-mail no valido</label>
 					@enderror
-				Telefono
+				 </DIV>
+				<div>Telefono
 				<input type="text" class="form-control"  wire:model="telef"  autocomplete="on"  onkeyUp="return ValNumero(this);" style=" font-size: 2rem;" >  
-				 @error('telef')
-					<span class="alert-danger"> Numero no valido!!</span>
-				@enderror    
-		           
-     </div>
+	    
+                 </div>
+                <div>
+					<label>WhatsApp</label> 
+					<input  type="text" wire:model="NroWp" class="form-control" style=" font-size: 2rem;" />
+	            </div>
+	 </div>
 
  </div>
 

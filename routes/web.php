@@ -2,10 +2,29 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Livewire\ResponsablsComponent;
+use Livewire\ParticipantsComponent;
+ 
+Route::middleware('auth:web')->group(function () {
+    //Route::get('/responsabls/index',ResponsablsComponent::class)->name('resp-livew');
+    //Route::get('/participants/index',ParticipantsComponent::class)->name('part-livew');
+    Route::get('/responsabls/index',function(){
+		return view('responsabls/index');
+	})->name('resp-livew');
+	                           	
+	Route::get('/participants/index',function(){
+		
+		return view('participants/index');
+	})->name('part-livew');
+    
+});
 
+ 
 
-
-
+ //Route::get('/auth/login', function() {
+		//return view('auth/login');
+	//})->name('login');
+		
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,7 +44,6 @@ Route::get('/auth/register', function(){
 Route::get('/auth/AdmUsers/tool', 'Auth\RegisterController@index')->name('AdmUser');
 
 
-//Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
 
@@ -50,13 +68,13 @@ Route::get('/aulas', function() {
 	})->name('AV-livew');
 		
 
-Route::get('/responsabls/index',function(){
-		return view('responsabls/index');
-	})->name('resp-livew');
-	 
-Route::get('/participants/index',function(){
-		return view('participants/index');
-	})->name('part-livew');
+//Route::get('/responsabls/index',function(){
+		//return view('responsabls/index');
+	//})->name('resp-livew');
+	                           	
+//Route::get('/participants/index',function(){
+		//return view('participants/index');
+	//})->name('part-livew');
 
 
 	//Route::get('/asoc', function () {
