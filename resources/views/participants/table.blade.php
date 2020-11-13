@@ -6,26 +6,23 @@
 					</div>
 				 @endif
 				 <br>
-                <div align="right">
-					
-			    </div>   
+                
 	<input type="text" class="search-input"  wire:model="searchPart"  placeholder="Buscar" >                            
 	<table class="table">   		
 		<thead class="thead-dark"> 			
 		<tr align="center">        			
-			<th>Nombres(s)</th>
-			<th>Apellido(s)</th>
+			<th>Nombre y Apellido(s)</th>
 			<th>Accion</th>
 		</tr>
 		</thead>
 		<tbody> 
 @if($parts->count())
-		@foreach($parts as $part)
-		<tr>
-			<td>{{ $part->name }}</td>
-			<td>{{ $part->last_name }}</td>
+	<?php $cont = 1; ?>
+		@foreach($parts as $part)    		
+		<tr @if($cont % 2 == 0) style="background: #ADD8E6" @endif >
+			<td>{{ $part->name }} {{ $part->last_name }}</td>
 			<td align="center">
-				<button wire:click="edit({{ $part->id }})" class="btn btn-info">editar | ver</button>
+				<img src="{{asset ('images/editar.png')}}" wire:click="edit({{ $part->id }})" class="img-act">
 
 <!--
 				&npsn; <button wire:click="destroy({{ $part->id }})" class="btn btn-danger">Eliminar</button>
@@ -33,7 +30,7 @@
 
 			</td>
 		</tr>
-		
+		 <?php $cont= $cont + 1; ?>
 		@endforeach
 
 	</tbody>
@@ -45,6 +42,8 @@
      <div style="color:blue;">
 			{{ $parts->links() }}
      </div>
+
+     
  </div>
     
   

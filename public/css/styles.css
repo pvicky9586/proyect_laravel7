@@ -79,6 +79,7 @@ footer{width: 100%; background-color: RGBA(0, 0, 0, 0.75); margin-top:2%;}
 .img-AddNew{ width:130px; height:150px; margin-left:5%;}
 .img-cursoVue{ width:400px; height:280px;}
 .img-logoVue{ width:200px; height:150px;}
+.img-act{ width:50px; height:50px;}
 .inputAuth{padding:30; font-size:20px; font-weight: bold;}
 .info{ font-size:1.5rem;background:#C1DFE9; padding:2%; border-radius: 20px;}
 
@@ -119,7 +120,7 @@ footer{width: 100%; background-color: RGBA(0, 0, 0, 0.75); margin-top:2%;}
 
 .publicSi{display:block; margin-right:5%; color: #008000;}
 
-table, th, td {  border: 1px solid black; font-size:2rem; }
+table, th, td {  border: 1px solid black; font-size:1.5rem; }
 tr td:last-child{
        width:1%;
        white-space:nowrap;

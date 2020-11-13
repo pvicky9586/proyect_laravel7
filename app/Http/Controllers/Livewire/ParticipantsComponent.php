@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Participants;
+use App\Cursos;
 use Auth;
 
 
@@ -13,13 +14,15 @@ class ParticipantsComponent extends Component
 	
 	 use WithPagination;
 	  
-	public $part_id, $cedula, $name, $last_name, $email, $telef, $NroWp;
+	public $part_id, $cedula, $name, $last_name, $id_curso, $Met_pago, $pago, $email, $telef, $NroWp;
+	
 	public $view = 'create';
 	public $searchPart = '';
 	
     public function render()
     {
-       return view('livewire.participants-component', [
+		$cursos= Cursos::all();
+       return view('livewire.participants-component',compact('cursos'), [
 		'parts'=> Participants::where(function($sub_query)
 		{
 			$sub_query->where('name','like', '%'.$this->searchPart.'%')
@@ -36,10 +39,15 @@ class ParticipantsComponent extends Component
 			   $this->validate([ 'email' => 'email']);  			 
 		 }
 		 
-		$resps = Participants::create([
+		$part = Participants::create([
 		'cedula' => $this->cedula,
 		'name' => $this->name,	
 		'last_name' => $this->last_name,
+		
+		'id_curso' => $this->id_curso,
+		'Met_pago' => $this->Met_pago,
+		'pago' => $this->pago,
+		
 		'email' => $this->email,
 		'telef' => $this->telef,
 		'NroWp' => $this->NroWp,
@@ -50,16 +58,29 @@ class ParticipantsComponent extends Component
 			//$this->name= '';
 			//$this->last_name= '';
 		$this->default();
-			return back()->with('mensaje','Datos Registrados');			
+		return back()->with('mensaje','Datos Registrados');			
 	}
      
      
+     
+     
+     
      public function edit($id){
-		$part= Participants::find($id); 	
-		$this->part_id	= $part-> id;
+		$part= Participants::find($id);
+		$this->part_id	= $part-> id; 
 		$this->cedula = $part->cedula;
 		$this->name = $part->name;
-		$this->last_name = $part->last_name;
+		$this->last_name = $part->last_name; 
+		
+		if ($part->id_curso){
+			$curs= Cursos::find($part->id_curso);  
+			$this->id_curso = $curs->title; 
+		} 
+						
+		$this->id_curso = $part->id_curso; 		
+		$this->Met_pago =$part->Met_pago;
+		$this->pago = $part->pago;
+		
 		$this->email = $part->email;
 		$this->telef = $part->telef;
 		$this->NroWp = $part->NroWp;		
@@ -73,6 +94,9 @@ class ParticipantsComponent extends Component
 			'cedula' => $this->cedula,
 			'name' => $this->name,
 			'last_name' => $this->last_name,
+			'id_curso' => $this->id_curso, 		
+			'Met_pago' => $this->Met_pago,
+			'pago' => $this->pago,
 			'email' => $this->email,
 			'telef' => $this->telef,
 			'NroWp' => $this->NroWp,
@@ -92,6 +116,9 @@ class ParticipantsComponent extends Component
 		$this->cedula = '';
 		$this->name = '';			
 		$this->last_name = '';
+		$this->id_curso = '';
+		$this->Met_pago = '';
+		$this->pago = '';
 		$this->email = '';
 		$this->telef = '';
 		$this->NroWp = '';

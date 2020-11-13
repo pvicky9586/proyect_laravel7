@@ -17,10 +17,16 @@ class CreateParticipantsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('cedula');
             $table->string('name')->nullable();
-            $table->string('last_name')->nullable();
+            $table->string('last_name')->nullable(); 
+            
+            $table->integer('id_cursos')->nullable();
+            $table->string('Met_pago')->nullable();
+            $table->string('pago')->nullable();
+            
             $table->string('email')->nullable();
             $table->string('telef')->nullable();
             $table->string('NroWp')->nullable();
+           
             $table->integer('user_created');
             $table->integer('user_updated')->nullable();
             $table->timestamps();;

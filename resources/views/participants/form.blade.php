@@ -17,8 +17,32 @@
      <div  style="font-size:1.5rem; padding-top:1%;">     
 		<input type="text" wire:model="last_name" autocomplete="on" placeholder="Apellidos(s)">
 	 </div>
+	 <br>
+	   
+	<div>
+<!--
+       @if ( $this->id_curso )
+		<h3 style="color:red;" align="center">{{ $this->id_curso }}</h3>           
+	   @endif
+-->
+	    <select wire:model="id_curso">
+			<option value="">seleccione</option>
+			@foreach($cursos as $item)
+				<option style="color:red;" value="{{$item->id}}">{{ $item->title }}</option>              
+			@endforeach
+	    </select>
+	 </div>
+	 <div>
+		Metodo de pago: <select wire:model="Met_pago">
+			<option value="">Seleccione</option>
+			<option value="Credito">Tarjeta de Cedito</option>  		
+	    </select>
+	</div>
+	<div>
+		<input type="text" wire:model="pago"  placeholder="Nro de referencia">
+	 </div>
 	 
-	 
+	 <br>
        <small style="color:#0000FF;">Información de contacto</small>
      
      <div class="info">   		 			
@@ -36,6 +60,8 @@
 					<label>WhatsApp</label> 
 					<input  type="text" wire:model="NroWp" class="form-control" style=" font-size: 2rem;" />
 	            </div>
+	            
+	           
 	 </div>
 
  </div>

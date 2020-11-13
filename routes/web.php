@@ -6,8 +6,8 @@ use Livewire\ResponsablsComponent;
 use Livewire\ParticipantsComponent;
  
 Route::middleware('auth:web')->group(function () {
-    //Route::get('/responsabls/index',ResponsablsComponent::class)->name('resp-livew');
-    //Route::get('/participants/index',ParticipantsComponent::class)->name('part-livew');
+    //Route::get('/responsabls/index/{id?}',ResponsablsComponent::class)->name('resp-livew');
+    //Route::get('/participants/index/{id?}',ParticipantsComponent::class)->name('part-livew');
     Route::get('/responsabls/index',function(){
 		return view('responsabls/index');
 	})->name('resp-livew');
@@ -29,6 +29,7 @@ Route::middleware('auth:web')->group(function () {
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
 
 
 Route::get('/help', 'Controller@cursos');
