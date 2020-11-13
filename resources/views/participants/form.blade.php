@@ -3,12 +3,16 @@
 	
 	<div style="font-size: 1rem;">
 
-		<input type="text" wire:model="cedula"  class="slideselector"  autofocus required placeholder="Cedula" onkeyUp="return ValNumero(this);"> 
+		<input type="text" wire:model="cedula"  class="slideselector"  autofocus required placeholder="Cedula"  onkeyUp="return ValNumero(this);" wire:keydown.enter="verif">   <small>Pulse la tecla enter</small>
 		@error('cedula')
-			<label class="alert-danger">Cedula Obligarotia</label>
+			<label class="alert-danger">Cedula obligarotia</label>
 		@enderror
      </div>
-            
+              @if (session('mensaje'))
+					<div class="alert alert-success">             
+						{{ session('mensaje') }}
+					</div>
+				 @endif
 
      <div  style="font-size: 1.5rem; margin-top:2%;">
 		<input type="text"   wire:model="name" class="slideselecto"  autocomplete="on" placeholder="Nombre(s)"> 
@@ -20,11 +24,7 @@
 	 <br>
 	   
 	<div>
-<!--
-       @if ( $this->id_curso )
-		<h3 style="color:red;" align="center">{{ $this->id_curso }}</h3>           
-	   @endif
--->
+
 	    <select wire:model="id_curso">
 			<option value="">seleccione</option>
 			@foreach($cursos as $item)

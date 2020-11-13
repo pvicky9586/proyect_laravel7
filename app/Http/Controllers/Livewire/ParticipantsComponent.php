@@ -18,6 +18,7 @@ class ParticipantsComponent extends Component
 	
 	public $view = 'create';
 	public $searchPart = '';
+	public $part, $mensaje;
 	
     public function render()
     {
@@ -32,13 +33,22 @@ class ParticipantsComponent extends Component
 		
 		
     }
-    
+     public function verif(){    		  
+		   $part = Participants::where('cedula','=',$this->cedula)->first();
+		   if ($part)  {
+			    $this->edit($part->id);  
+			    $this->view = 'edit';
+			    return back()->with('mensaje','Datos Registrados');	
+			}
+			
+	}
+	  
      public function store() {
 		$this->validate(['cedula' => 'required']);
 		 if ($this->email){
 			   $this->validate([ 'email' => 'email']);  			 
 		 }
-		 
+		                                           
 		$part = Participants::create([
 		'cedula' => $this->cedula,
 		'name' => $this->name,	
@@ -49,7 +59,7 @@ class ParticipantsComponent extends Component
 		'pago' => $this->pago,
 		
 		'email' => $this->email,
-		'telef' => $this->telef,
+		'telef' => $this->telef,                                          
 		'NroWp' => $this->NroWp,
 		'user_created' => Auth::user()->id
 		]);  		 
@@ -60,7 +70,7 @@ class ParticipantsComponent extends Component
 		$this->default();
 		return back()->with('mensaje','Datos Registrados');			
 	}
-     
+                                                                
      
      
      
@@ -78,7 +88,7 @@ class ParticipantsComponent extends Component
 		} 
 						
 		$this->id_curso = $part->id_curso; 		
-		$this->Met_pago =$part->Met_pago;
+		$this->Met_pago =$part->Met_pago;           
 		$this->pago = $part->pago;
 		
 		$this->email = $part->email;
