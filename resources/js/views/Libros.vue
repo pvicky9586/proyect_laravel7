@@ -1,21 +1,64 @@
 <template>
 <div id="app">
-	<div id="inicio">
+      
+		<button @click.prevent="ventana=true">Abrir</button>
 		
 		
-	<div style="padding-top:30%; color:red;" align="center">
-			<h1>Por anexar informacion</h1>
-		</div>
-		</div>
+		
+	<div class="contenedor" v-bind="ventana" v-if="ventana">
+	
+		  
+		<div class="modal">
+		      <div class="header">
+					<h1>Header</h1>  
+			  </div>
+				<div class="contenido">
+					<form action="">   					
+						<input type="data" name="" id="">                                             
+						<input @clic.prevent="ventana=false" type="button" value="Guardar">            
+					</form>   
+				</div>  		
+		</div> 
+				  		
+		
 	</div>
 </div>
 </template>
 
 
-<style scoped>
-#inicio{
-	margin-top:10px;
-	}
-#imgL{ padding: 10px; margin: 10px; float: left;width: 100vh; height:60vh;}
+ <script>
+export default{
+	name: 'Libros',
+	data(){
+		return{
+		message: 'hola vue',
+		ventana: false,
+		}
+	},
+	methods: {
+		
+	},
+ }
+</script>
 
-</style>
+<style>
+ .contenedor{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	heidth: 100%;
+	background: rqna(0,0,0,0.5);
+ }
+ .modal{
+	background: red;
+	boder-radius:10px;
+	padding: 5px;
+	width:600px;
+	margin:50px auto;
+}
+
+
+ </style>
+
+

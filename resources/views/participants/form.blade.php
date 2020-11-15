@@ -1,28 +1,27 @@
 <div style=" font-size: 2rem;" class="">
 	 
-	
-	<div style="font-size: 1rem;">
-
-		<input type="text" wire:model="cedula"  class="slideselector"  autofocus required placeholder="Cedula"  onkeyUp="return ValNumero(this);" wire:keydown.enter="verif">   <small>Pulse la tecla enter</small>
+	 <small style="color:#BFBFBF; font-size: 2rem;">Información personal</small>
+	 
+	<div style="font-size: 1rem;">  
+		<input type="text" wire:model="cedula"  class="slideselector"  autofocus required placeholder="Cedula"  onkeyUp="return ValNumero(this);" wire:change="verif"> 
 		@error('cedula')
 			<label class="alert-danger">Cedula obligarotia</label>
 		@enderror
      </div>
               @if (session('mensaje'))
 					<div class="alert alert-success">             
-						{{ session('mensaje') }}
+						<small>{{ session('mensaje') }}  </small>
 					</div>
 				 @endif
 
-     <div  style="font-size: 1.5rem; margin-top:2%;">
+     <div  style="font-size: 1.5rem; padding-top:2%;">
 		<input type="text"   wire:model="name" class="slideselecto"  autocomplete="on" placeholder="Nombre(s)"> 
-     </div>
-     
-     <div  style="font-size:1.5rem; padding-top:1%;">     
+      
 		<input type="text" wire:model="last_name" autocomplete="on" placeholder="Apellidos(s)">
 	 </div>
 	 <br>
-	   
+	 
+	   <small style="color:#BFBFBF;font-size: 2rem;">Curso | Pago</small>  
 	<div>
 
 	    <select wire:model="id_curso">
@@ -33,7 +32,7 @@
 	    </select>
 	 </div>
 	 <div>
-		Metodo de pago: <select wire:model="Met_pago">
+		Metodo de pago: <select wire:model="meth_pago">
 			<option value="">Seleccione</option>
 			<option value="Credito">Tarjeta de Cedito</option>  		
 	    </select>
@@ -43,7 +42,9 @@
 	 </div>
 	 
 	 <br>
-       <small style="color:#0000FF;">Información de contacto</small>
+	 
+	 {{$InscCurs}} 
+       <small style="color:#BFBFBF; font-size: 2rem;">Información de contacto</small>
      
      <div class="info">   		 			
 				 <DIV>E-mail

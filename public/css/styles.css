@@ -8,7 +8,8 @@ header {
   color: white;
   position: fixed;} 
   
-.auth{ font-size:1.5rem; display:flex;}
+.auth{ font-size:1.5rem; display:flex; float:right; margin-right:2%;}
+
 video { 
   position: absolute;
   top: 0;
@@ -43,10 +44,11 @@ video {
 .bt-save{ width:100%;margin-top:10%;;}
 .bt-canc{ margin-top:5px;}
 
-.container-app{width:100%; }
+.container-app{width:100%;}
 .container-Auth{ }		
 .container-livew{ }	
-.cont{ display:flex;width: 100%; margin-top:15%;  }			
+.cont{ display:flex;width: 100%; margin-top:13%;  }			
+.cont-2{ display:flex;width: 100%; margin-top:2%;  }	
 /*
 	width:100%;
 	overflow-y: scroll;	
@@ -71,7 +73,7 @@ footer{width: 100%; background-color: RGBA(0, 0, 0, 0.75); margin-top:2%;}
 #footer{height: 8rem; 	bottom: 0; 	color: white;  	padding:0.5%; }		
 	
 .irAtras{	margin-right:5%; width: 90px; height: 100px;}	
-.irHome{margin:5%;	width: 120px; height: 120px;}
+.irHome{width: 120px; height: 120px;}
 .img-left{ width: 100%; height: 400px; }	
 .img-bt-new{  width:130px; height:100px;}
 .img-bt-user{  width:50px; height:60px;}
@@ -173,3 +175,17 @@ tr td:last-child{
 	color:red;
 	font-size:1.3rem;}
 .search-input{ font-weight: bold; font-size:1.5rem; width:100%;}
+
+
+#Menu{
+	margin-left:10%; 
+	}
+
+.TextMenu{
+	text-align:center;
+	 padding:5px;
+	 text-transform:uppercase;
+	 font-size:20px;	
+	text-decoration: none;
+	border-right: 2px solid #000;
+	/*font-weight: bold; */ }

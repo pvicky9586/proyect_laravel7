@@ -1,4 +1,4 @@
-<div>
+<div  style="width:60%; float:right; margin-right:3%;">
 
                  @if (session('mensaje'))
 					<div class="alert alert-success">             
@@ -7,7 +7,8 @@
 				 @endif
 				 <br>
                 
-	<input type="text" class="search-input"  wire:model="searchPart"  placeholder="Buscar" >                            
+	<input type="text" class="search-input"  wire:model="searchPart"  placeholder="Buscar" >           
+	                
 	<table class="table">   		
 		<thead class="thead-dark"> 			
 		<tr align="center">        			
@@ -16,14 +17,14 @@
 		</tr>
 		</thead>
 		<tbody> 
-@if($parts->count())
+	@if($parts->count())
 	<?php $cont = 1; ?>
 		@foreach($parts as $part)    		
 		<tr @if($cont % 2 == 0) style="background: #ADD8E6" @endif >
-			<td>{{ $part->name }} {{ $part->last_name }}</td>
+			<td>{{ ucfirst(trans($part->name)) }} {{ ucfirst(trans($part->last_name)) }}</td>
 			<td align="center">
 				<img src="{{asset ('images/editar.png')}}" wire:click="edit({{ $part->id }})" class="img-act">
-
+                 
 <!--
 				&npsn; <button wire:click="destroy({{ $part->id }})" class="btn btn-danger">Eliminar</button>
 -->
@@ -33,12 +34,12 @@
 		 <?php $cont= $cont + 1; ?>
 		@endforeach
 
-	</tbody>
-@else
-	<h1>No hay registros</h1>
-@endif
+			</tbody>
+		@else
+			<h1>No hay registros</h1>
+		@endif
 
-</table>
+		</table>
      <div style="color:blue;">
 			{{ $parts->links() }}
      </div>

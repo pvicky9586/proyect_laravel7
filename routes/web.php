@@ -24,11 +24,25 @@ Route::middleware('auth:web')->group(function () {
  //Route::get('/auth/login', function() {
 		//return view('auth/login');
 	//})->name('login');
-		
+
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('AppMenu');
 })->name('welcome');
+
+Route::get('/Menu/nosotros', function () {
+    return view('Menu.nosotros');
+})->name('nosotros');		
+
+//Route::get('/', function () {
+    //return view('welcome');
+//})->name('welcome');
+
+
+
+Route::get('/inscripcion', function(){
+	return view('inscripcion');
+});
 
 
 
@@ -36,6 +50,11 @@ Route::get('/help', 'Controller@cursos');
 
 Auth::routes();
 //---------USER
+
+
+
+
+
 
 
 Route::get('/auth/register', function(){
@@ -68,14 +87,6 @@ Route::get('/aulas', function() {
 		return view('aulas');
 	})->name('AV-livew');
 		
-
-//Route::get('/responsabls/index',function(){
-		//return view('responsabls/index');
-	//})->name('resp-livew');
-	                           	
-//Route::get('/participants/index',function(){
-		//return view('participants/index');
-	//})->name('part-livew');
 
 
 	//Route::get('/asoc', function () {

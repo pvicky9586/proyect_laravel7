@@ -14,6 +14,7 @@ class ResponsablsComponent extends Component
 	public $resp_id, $cedula, $name, $last_name, $email, $telef, $NroWp;
 	public $view = 'create';
 	public $searchResp = '';
+	public $resp, $mensaje;
 	 
     public function render()
     {
@@ -25,6 +26,16 @@ class ResponsablsComponent extends Component
 				})->orderBy('id','desc')->simplepaginate(10) 
 		]);
      }
+     
+      public function verif(){    		  
+		   $resp = Responsabls::where('cedula','=',$this->cedula)->first();
+		   if ($resp)  {
+			    $this->edit($resp->id);  
+			    $this->view = 'edit';
+			    return back()->with('mensaje','Datos Registrados');	
+			}
+			
+	}
      
      public function store() {
 		$this->validate(['cedula' => 'required']);
