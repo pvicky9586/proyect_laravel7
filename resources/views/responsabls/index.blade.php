@@ -1,4 +1,4 @@
-@extends('layouts.appLivewire')
+@extends('layouts.appAuth')
 @section('title','- Responsabls ')
 @section('content')
 

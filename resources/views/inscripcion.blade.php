@@ -1,9 +1,15 @@
 @extends('layouts.appAuth')
 @section('title','- Bienvenidos')
 @section('content')
-         
-  <a href="#" class="btn btn-primary pull-right" data-toggle="modal" data-target="#create">
-    Nueva tarea
-</a>        
+ 
+
+<div class="title" ><b>Inscripcion</b></div>         
+
+....
 
 @endsection
+  <script src="{{ asset('js/SelcDinam.js') }}"></script>  
+<script src="{{ asset('js/public.js') }}"></script>
+
+<script src="{{ asset('js/forms.js') }}"></script>
+

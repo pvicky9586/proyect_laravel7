@@ -1,9 +1,6 @@
 @extends('layouts.app')
 @section('title','- Bienvenidos')
-@section('content')
-
-
-		         
+@section('content')	         
 <div>
   
     <div style="display: flex; margin-right:5%;">
@@ -33,8 +30,8 @@
 		</span> 
  
 </div>
-@endsection
 
+ @endsection
 <style >
 	
 #inicio{
@@ -77,5 +74,7 @@ p {
 
 
 </style>
+
+
 
 

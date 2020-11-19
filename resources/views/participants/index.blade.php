@@ -1,4 +1,4 @@
-@extends('layouts.appLivewire')
+@extends('layouts.appAuth')
 @section('title','- Participants ')
 @section('content')
 
@@ -7,7 +7,7 @@
 			<a href="{{ route('AdmUser') }}"  ><img src="{{ asset('images/irAtras.jpg') }}" width="100" height="120"></a>
 	     </div>
 	
-<div class="tool">
+<div class="toll">
 	
     <div>@livewire('participants-component')</div>
         

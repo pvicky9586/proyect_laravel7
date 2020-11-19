@@ -22,59 +22,66 @@
 	</div>  
 </header> 	
 		
-
-
-<div  class="cont">		
-		<div class="IrHome" style="margin-top:2%;">
+<br><br>	
+	<div class="cont-auth-home" style="display:flex; margin-top:13%;"> 						
+		
+		<div class="irHome" >
 			<a href="{{ route('welcome') }}" title="Inicio" ><img src="{{ Storage::url("images/inicio.png")}}" width="100" height="120"></a>
-		</div>		
-	 <div  class="container-app"  >
-		  @yield('content')     
-	 </div>
-	   
+		</div>	
 	
-	 <div class="bar-left" > 
-		 <div style="font-size:14px; display:flex;"> 
-		        	@if (Auth::user())  
-			 
-				<a href="{{ route('welcome')}}"  class="user-auth" data-toggle="dropdown" role="button" aria-expanded="false">
-				<?php echo  (strtoupper (Auth::user()->username) )?></a>
-				    
-					@if ((Auth::user()->privileges) === 1)
-					      <div align="center" >
-							<a href="{{ route('AdmUser') }}" class=""style="font-size:16px; ">
-							<img src="{{ asset('images/ajustes.png') }}" width="30" height="35" >  Adm > Usuarios | Cursos | Participants</a>
-						 </div>
-				   @endif	
-				   
+	 <div class="auth"> 
+		     @if (Auth::user()) 			 
+				 	<a href="{{ url('/logout') }}"  class="user-auth" data-toggle="dropdown" role="button" aria-expanded="false"> 
+						<?php echo  (strtoupper (Auth::user()->username) )?>
+				    </a>
+				
+				
+				@if ((Auth::user()->privileges) === 1)
+					<div align="center" >
+						<a href="{{ route('AdmUser') }}" class=""style="font-size:16px; ">
+							<img src="{{ asset('images/ajustes.png') }}" width="30" height="35" > Usuarios Administrador
+						</a>
+				    </div>
+				@endif
 				<ul class="dropdown-menu" role="menu"><!--dejo abierto 'ul' -->
-				<li>
+				
+				
+				<li> 
 					<a href="{{ route('logout') }}" class="salir" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="Salir">Cerrar Seccion</a>
-					<form id="logout-form" action="{{ route('logout') }} " method="POST">{{ csrf_field() }}  </form>
+					<form id="logout-form" action="{{ route('logout') }} " method="POST">{{ csrf_field() }}  </form> 
 				</li>
+					
 								
 			  @else 
 				<a href="{{ route('login') }}"  style="color:#0000FF;"><img src="{{asset('images/acceso.png')}}">Acceder</a>
 			  @endif   		    	
 			</div>
-		
-	             <br><br>
-			  <div>
-				<a href="{{ route('AV-livew')}}"> <img src="{{ asset('images/av2.jpeg')}}" class="img-left" title="entrar al Aula Virtual"></a> 
+		</div> 
+
+<div  class="cont-2 ">		
+				
+	 <div  class="container-app" >
+		 @yield('content')
+		 @livewireScripts 
+		      
+	 </div>
+	   
+	
+	 <div class="bar-left" > 
+			<div>
+				<a href="{{ route('AV-livew')}}"> 
+					<img src="{{ asset('images/av2.jpeg')}}" class="img-left" title="entrar al Aula Virtual">
+				</a> 
 			     <br><br>
 		
-				<a href="">  <img src="{{ asset('images/Asociados.png')}}" class="img-left" title="Asociados"></a>	
+				<a href="">  
+					<img src="{{ asset('images/Asociados.png')}}" class="img-left" title="Asociados">
+				</a>	
 			</div>    	
 	</div>
  
- </div>				
-
-
-
-
-
-
-
+ </div>
+		
 
 
 

@@ -1,0 +1,18 @@
+ 
+//Route::get('/Menu/Cursos_Insc/inscribirse', function () {   
+	//return view('Menu/Cursos_Insc.inscribirse');
+//})->name('inscribirse');
+
+ //Route::get('/insc/{id?}', function () {   
+	//return view('insc');
+//})->name('inscribirse');
+ 
+ --view cursos
+     <!--
+						<a href="{{ route('inscribirse', $curso->id )}}"  class="btn btn-primary pull-right" >
+							Inscripcion
+							</a>	
+-->
+							<!-- <a href="#" wire:click="ir({{ $curso->id }})"  class="btn btn-primary pull-right" data-toggle="modal" data-target="#inscribirse">
+							ventana modal
+							</a>-->	

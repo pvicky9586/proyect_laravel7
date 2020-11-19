@@ -15,11 +15,15 @@ class CursController extends Controller
 			$this->middleware('auth');
 		  }
    
-    public function index()
-    {
+    public function index(){
          $cursos = App\Cursos::orderBy('id','DESC')->paginate(4);
 		return view('cursos.index',compact('cursos'));
     }
+                //cursos de vista menu
+    //public function index2(){
+         //$cursos = App\Cursos::orderBy('id','DESC')->paginate(2);
+		//return view('Menu.cursos',compact('cursos'));
+    //}
 
     public function create()
     {

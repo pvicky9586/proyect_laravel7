@@ -5,15 +5,16 @@
 <div class="title" ><b>Usuario | Cursos | Paticipantes | Responsables</b></div>
 	
            
-<div class="toll" style="margin-top:10%;">	
+<div class="toll" style="margin-top:5%;">	
 	               <!-- CURSOS -->
-	<div  style="font-size:20px; text-align:center;">
+	<div  class="toll-enl" >
 		<img src="{{ asset('images/cursos-online.jpeg') }}"  width="400" height="300" style="opacity:0.5;"> <br>
 		<a href="{{ route('cursos') }}" style="font-size:24px;">  
-				Click aqui</a><BR> para entrar a la seccion de cursos
+				Click aqui
+		</a><BR> para entrar a la seccion de cursos
 	</div>
 				<!-- RESPONSABLS -->
-	 <div style="font-size:20px; text-align:center;">
+	 <div class="toll-enl-2">
 	      <a href="{{ route('resp-livew')}}" title="Responsabls">
 			  <img src="{{asset('images/resp.png')}}" width="150" height="300" ><br>Responsables
 		  </a>
@@ -22,20 +23,24 @@
 	  
 				<!-- PARTICIPANTS -->
 	
-   <div  style="font-size:20px; text-align:center;" >
+   <div class="toll-enl-2">
 		<a href="{{ route('part-livew') }}">
 			<img src="{{asset('images/participants.jpg')}}" width="400" height="300" style="opacity:0.3;"><br>
 			Participants
 		</a>
 	</div>
-
-
-
-	
 	
 </div>
+
+
+
+
+
+
+
+
 	<!-- USUARIOS -->
-	<div style=" margin-top:10%;">
+	<div style=" margin-top:8%; margin-left:2%;" align="center">
 		  @if (session('mensaje'))
 			<div class="alert alert-success">             
 				{{ session('mensaje') }}
@@ -46,7 +51,7 @@
 				<img src="{{ asset('images/bt-new.jpg') }}" class="img-bt-new">
 				<img src="{{asset('images/loguear.jpeg')}}" class="img-bt-user"> 					
 			</a> 				
-		</label>
+		</label> 		
 		<table class="table table-striped" >
 				<thead class="thead-dark">
 					<tr>      
@@ -72,9 +77,8 @@
 					</tr>				
 				</tbody>
 			@endforeach
-		</table> 
+		</table>           
 		<label>{{ $users->links()}}</label>                              	  
-			
 	</div>
 		
 
