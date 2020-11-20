@@ -4,10 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Livewire\ResponsablsComponent;
 use Livewire\ParticipantsComponent;
- 
 
-
- 
 
 
 Route::get('/', function () {
@@ -15,21 +12,21 @@ Route::get('/', function () {
 })->name('welcome');
 
 
-Route::get('/Menu/menu', function () {
+Route::get('/Menu', function () {
     return view('Menu.menu');
 })->name('menu');
 
-Route::get('/Menu/nosotros', function () {
+Route::get('/nosotros', function () {
     return view('Menu.nosotros');
 })->name('nosotros');		
 
-Route::get('/Menu/Cursos_Insc/index', function () {   
+Route::get('/cursos', function () {   
     return view('Menu/Cursos_Insc.index');
 })->name('MenuCursos');
 
 
- Route::get('/Menu/Cursos_Insc/inscribirse/{id?}','InscripcionController@index')->name('inscribirse');   
- Route::post('/Menu/Cursos_Insc/inscribirse', 'InscripcionController@save')->name('inscribir');
+ Route::get('/inscribirse/{id?}','InscripcionController@index')->name('inscribirse');   
+ Route::post('/inscribirse', 'InscripcionController@save')->name('inscribir');
 
 //---------USER
 
@@ -43,23 +40,27 @@ Route::post('/auth/register', 'Auth\RegisterController@create')->name('createUse
 
 // RUTAS PRITEGIDAS (ADM)
 Route::get('/cursos/index','CursController@index')->name('cursos');
-Route::get('/cursos/new', 'CursController@create')->name('Newcurso');
+Route::get('/new', 'CursController@create')->name('Newcurso');
 Route::post('/cursos/new','CursController@store')->name('SaveCurso');
-Route::get('/cursos/EditCurs/{id?}', 'CursController@edit')->name('EditCurs');
-Route::put('/cursos/EditCurs/{id}','CursController@update')->name('UpCurso');
+Route::get('/editar/{id?}', 'CursController@edit')->name('EditCurs');
+Route::put('/editar/{id}','CursController@update')->name('UpCurso');
   
 
 
 Route::middleware('auth:web')->group(function () {
     //Route::get('/responsabls/index/{id?}',ResponsablsComponent::class)->name('resp-livew');
     //Route::get('/participants/index/{id?}',ParticipantsComponent::class)->name('part-livew');
-    Route::get('/responsabls/index',function(){
+    Route::get('/Responsabls',function(){
 		return view('responsabls/index');
 	})->name('resp-livew');
 	                           	
-	Route::get('/participants/index',function(){	
+	Route::get('/Participants',function(){	
 		return view('participants/index');
 	})->name('part-livew');
+	
+	Route::get('/Inscripcion',function(){
+		return view('Inscripcion/index');
+	})->name('insc-auth');
 	
 	//Route::get('/post', Posts::class);
     

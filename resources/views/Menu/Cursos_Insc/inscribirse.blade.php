@@ -1,8 +1,8 @@
 @extends('layouts.appAuth')
 @section('title','- Bienvenidos')
 @section('content')
-         
-       <h1 class="title-curs" align="center">{{ $curso->title}}</h1>
+
+<h1 class="title-curs" align="center">{{ $curso->title}}</h1>
 <div style="margin-left:10%; margin-right:10%;">
 			   
     
@@ -12,7 +12,7 @@
 			 <small class="title-op">Información personal</small>
 			<input type="checkbox" name="id_curso" value="{{ $curso->id }}" style="visibility:hidden" checked>
 			<div style="font-size: 1rem;">  
-				<input type="text" name="cedula"  class="slideselector"   autofocus required placeholder="Cedula"  onkeyUp="return ValNumero(this);"  > 
+				<input type="text" name="cedula"  class="slideselector"   autofocus placeholder="Cedula"  onkeyUp="return ValNumero(this);"  > 
 				@error('cedula')
 					<label class="alert-danger">Cedula obligarotia</label>
 				@enderror
@@ -44,7 +44,7 @@
 			</select>
 		 </div> 		   
 		 <div>
-			<input type="text" name="pago"  placeholder="Nro de referencia">
+			Referencia<input type="text" name="pago" style="padding:1%;font-size:1.5rem;" placeholder="Nro">
 		 </div>
 	  </div>
 	 <br><br><br>

@@ -20,30 +20,7 @@
 		<input type="text" wire:model="last_name" autocomplete="on" placeholder="Apellidos(s)">
 	 </div>
 	 <br>
-	 
-	   <small style="color:#BFBFBF;font-size: 2rem;">Curso | Pago</small>  
-	<div>
 
-	    <select wire:model="id_curso">
-			<option value="">seleccione</option>
-			@foreach($cursos as $item)
-				<option style="color:red;" value="{{$item->id}}">{{ $item->title }}</option>              
-			@endforeach
-	    </select>
-	 </div>
-	 <div>
-		Metodo de pago: <select wire:model="meth_pago">
-			<option value="">Seleccione</option>
-			<option value="Credito">Tarjeta de Cedito</option>  		
-	    </select>
-	</div>
-	<div>
-		<input type="text" wire:model="pago"  placeholder="Nro de referencia">
-	 </div>
-	 
-	 <br>
-	 
-	 {{$InscCurs}} 
        <small style="color:#BFBFBF; font-size: 2rem;">Información de contacto</small>
      
      <div class="info">   		 			

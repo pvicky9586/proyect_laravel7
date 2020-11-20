@@ -52,7 +52,7 @@
 				@if ((Auth::user()->privileges) === 1)
 					<div align="center" >
 						<a href="{{ route('AdmUser') }}" class=""style="font-size:16px; ">
-							<img src="{{ asset('images/ajustes.png') }}" width="30" height="35" >  Administrar
+							<img src="{{ asset('images/ajustes.png') }}" width="30" height="35" >  Usuario Administrar
 						</a>
 				    </div>
 				@endif

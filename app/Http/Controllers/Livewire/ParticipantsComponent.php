@@ -61,22 +61,7 @@ class ParticipantsComponent extends Component
 		'telef' => $this->telef,                                          
 		'NroWp' => $this->NroWp		
 		]);
-		
-		$Buscpart = Participants::where('cedula','=',$this->cedula)->first();
-		
-		
-		$insc= Incripcion::create([
-		'id_part' => $Buscpart->id,		
-		'id_curso' => $this->id_curso
-		]);
-		
-		$pago = Incripcion_pago::create([
-		'id_curso' => $this->id_curso,
-		'id_part' => $Buscpart->id,
-		'meth_pago' => $this->meth_pago,
-		'pago' => $this->pago 		
-		]);  		 
-			
+	
 		$this->default();
 		return back()->with('mensaje','Datos Registrados');			
 	}
@@ -112,20 +97,6 @@ class ParticipantsComponent extends Component
 			'NroWp' => $this->NroWp
 		]); 
 
-		//$InscPart = Incripcion::get->($this->part_id);
-		
-		
-		  //if ($InscCurs->id == $InscPart->id){
-			  //$Insc = Incripcion ::find($InscPart->id);
-			  //$Insc->update([
-			   //'id_curso' => $this->id_curso
-			   //]);
-			   			  
-		  //}	
-		
-			// 		
-			//'meth_pago' => $this->meth_pago,
-			//'pago' => $this->pago,
 		$this->default(); 
 		return back()->with('mensaje','Datos Actualizados');	
 	}

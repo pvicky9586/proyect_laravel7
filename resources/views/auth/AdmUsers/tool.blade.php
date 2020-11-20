@@ -33,7 +33,15 @@
 </div>
 
 
-
+        
+				<!-- IINSCRIPCION-->
+	
+   <div class="toll-enl-2">
+		<a href="{{ route('insc-auth') }}">
+			<img src="{{asset('images/reg.jpg')}}" width="400" height="300" style="opacity:0.8;"><br>
+			Inscripcion
+		</a>
+	</div>
 
 
 
