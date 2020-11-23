@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App;
+use Auth;
 class InscripcionController extends Controller
 {
     public function index(Request $request){
-			$curso = App\Cursos::findOrFail($request->id); 
+			$curso = App\Curso::findOrFail($request->id); 
 			if ($curso){
 				return view('Menu/Cursos_Insc/inscribirse',compact('curso'));
 			}
@@ -16,10 +17,10 @@ class InscripcionController extends Controller
 	
 	public function save(Request $request){
 		   
-		$request->validate(['cedula' => 'required']); 
+		$request->validate(['cedula' => 'required', 'name', 'last_name' => 'required']); 
 	                                         
-	   $Buscpart = App\Participants::where('cedula','=',$request->cedula)->first();
-	  
+	   $Buscpart = App\Participant::where('cedula','=',$request->cedula)->first();
+	    //echo $request->curso_id;
 		if (isset($Buscpart)){
 		//echo " existe";
 			$Buscpart->name = $request->name;
@@ -27,42 +28,60 @@ class InscripcionController extends Controller
 			$Buscpart->email = $request->email;
 			$Buscpart->telef = $request->telef;                                          
 			$Buscpart->NroWp = $request->NroWp;
+			if(Auth::user()){
+				$Buscpart->user_updated = Auth::user()->id;
+			}
 			$Buscpart->save();			
 		
-		} else {
+		}else {
 		//echo "No existe";
-			$part = App\Participants::create([
+			$part = App\Participant::create([
 			'cedula' => $request->cedula,
 			'name' => $request->name,	
 			'last_name' => $request->last_name,
 			'email' => $request->email,
 			'telef' => $request->telef,                                          
-			'NroWp' => $request->NroWp		
-			]);	
-		}
-		$BuscNewpart = App\Participants::where('cedula','=',$request->cedula)->first();	 
-		$Busc1 = App\Incripcion::where('id_curso','=',$request->id_curso)->get();
-		$Num = count($Busc1); 		
-		for ($i=0; $i<$Num; $i++){
-			if ($Busc1[$i]->id_part == $BuscNewpart ->id){
+			'NroWp' => $request->NroWp	
+			]);
 				
-			     return redirect()->route('MenuCursos')->with('mensaje','Ya Usted se encuentra registrado es este curso, consulte contactanos para mas informacion');	
-			    
-			}    
-			
 		}
-		$insc= App\Incripcion::create([ 
-		'id_part' => $BuscNewpart->id,		
-		'id_curso' => $request->id_curso
+		$BuscNewpart = App\Participant::where('cedula','=',$request->cedula)->first();	 
+		$Busc1 = App\Incription::where('curso_id','=',$request->curso_id)->get(); 
+		$Num = count($Busc1);
+		if(!isset($Busc1) and $Num >= 1){
+			 		
+			for ($i=0; $i<$Num; $i++){
+				if ($Busc1[$i]->part_id == $BuscNewpart->id){ 				
+			     return redirect()->route('MenuCursos')->with('mensaje','Ya Usted se encuentra registrado es este curso, consulte contactanos para mas informacion');	
+				} 
+			}
+		}else{   
+		$insc = App\Incription::create([ 
+		'part_id' => $BuscNewpart->id,		
+		'curso_id' => $request->curso_id
 		]);
-			
-		$pago = App\Incripcion_pago::create([
-		'id_curso' => $request->id_curso,
-		'id_part' => $BuscNewpart->id,
+				
+		//$pago = App\IncriptionPago::create([
+		//'insc_id' => $insc->id,
+		//'meth_pago' => $request->meth_pago,
+		//'pago' => $request->pago 		
+		//]);
+		
+		//CON ELOQUENT  (YA EXISTE LA RELACION)
+		$insc->pago()->create([
 		'meth_pago' => $request->meth_pago,
 		'pago' => $request->pago 		
 		]);
 		
+		
+		}	
 		return redirect()->route('MenuCursos');
+		
 	}
+	
+	
+	
+	
+	
+	
 }

@@ -4,10 +4,8 @@ namespace App\Http\Controllers\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Participants;
-use App\Cursos;
-use App\Incripcion;
-use App\Incripcion_pago;
+use App\Curso;
+
 
 class MenuCursosInscripcion extends Component
 {
@@ -18,7 +16,7 @@ class MenuCursosInscripcion extends Component
     public function render()
     {    
 		return view('livewire.menu-cursos-inscripcion',[
-          'cursos'=>Cursos::where('statud', '=', 1)->orderBy('id','desc')->simplepaginate(4) 
+          'cursos'=>Curso::where('statud', '=', 1)->orderBy('id','desc')->simplepaginate(4) 
 		]);
     }
     

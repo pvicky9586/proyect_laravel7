@@ -4,10 +4,8 @@ namespace App\Http\Controllers\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Participants;
-use App\Cursos;
-use App\Incripcion;
-use App\Incripcion_pago;
+use App\Participant;
+use App\Curso;
 use Auth;
 
 
@@ -25,9 +23,9 @@ class ParticipantsComponent extends Component
 	
     public function render()
     {
-		$cursos= Cursos::all();
+		$cursos= Curso::all();
        return view('livewire.participants-component',compact('cursos'), [
-		'parts'=> Participants::where(function($sub_query)
+		'parts'=> Participant::where(function($sub_query)
 		{
 			$sub_query->where('name','like', '%'.$this->searchPart.'%')
 			->orWhere('last_name','like', '%'.$this->searchPart.'%');
@@ -37,7 +35,7 @@ class ParticipantsComponent extends Component
 		
 	}
     public function verif(){    		  
-		   $part = Participants::where('cedula','=',$this->cedula)->first();
+		   $part = Participant::where('cedula','=',$this->cedula)->first();
 		   if ($part)  {
 			    $this->edit($part->id);  
 			    $this->view = 'edit';
@@ -53,7 +51,7 @@ class ParticipantsComponent extends Component
 			   $this->validate([ 'email' => 'email']);  			 
 		 }
 		                                           
-		$part = Participants::create([
+		$part = Participant::create([
 		'cedula' => $this->cedula,
 		'name' => $this->name,	
 		'last_name' => $this->last_name,
@@ -71,7 +69,7 @@ class ParticipantsComponent extends Component
      
      
     public function edit($id){
-		$part= Participants::find($id);
+		$part= Participant::find($id);
 		
 		$this->part_id	= $part-> id; 
 		$this->cedula = $part->cedula;
@@ -87,7 +85,7 @@ class ParticipantsComponent extends Component
 	
 	public function update(){
 		$this->validate(['cedula' => 'required']);
-		$part = Participants::find($this->part_id); 		
+		$part = Participant::find($this->part_id); 		
 		$part->update([
 			'cedula' => $this->cedula,
 			'name' => $this->name,
@@ -104,7 +102,7 @@ class ParticipantsComponent extends Component
      
 	
    public function destroy ($id){
-		Participants::destroy($id);  
+		Participant::destroy($id);  
 	}
 	
 	public function default(){

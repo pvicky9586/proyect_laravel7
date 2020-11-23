@@ -20,7 +20,7 @@ class Controller extends BaseController
 	
 	      
 		public function cursos(Request $request){
-		   $cursos = App\Cursos::all();
+		   $cursos = App\Curso::all();
 			return view('help',compact('cursos'));
 		}
 

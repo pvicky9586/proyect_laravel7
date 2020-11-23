@@ -16,8 +16,10 @@ class CreateCursoRespsTable extends Migration
         Schema::create('curso_resps', function (Blueprint $table) {
            	$table->engine = 'InnoDB';
             $table->bigIncrements('id');
-            $table->integer('curso_id');
-            $table->integer('resp_id');
+             $table->unsignedBigInteger('curso_id')->nullable();
+            $table->foreign('curso_id')->references('id')->on('cursos')->onDelete('cascade');
+            $table->unsignedBigInteger('resp_id')->nullable();
+            $table->foreign('resp_id')->references('id')->on('responsabls')->onDelete('cascade');
             
             $table->timestamps();
         });

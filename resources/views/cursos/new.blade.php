@@ -39,9 +39,7 @@
 				</div>	
 					<div  align="center" class="Add-Resp" >
 					Si responsable No esta en la lista de <a href="{{ route('resp-livew')}}" title="Responsabls">click aqui</a>
-<!--
-					<a href="{{ route('responsabls') }}">
--->
+
 				</div>
 		</div>	
 	

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Livewire;
 
 use Livewire\Component;
-use App\Incripcion;
-use App\Cursos;          
+use App\Incription;
+use App\Curso;          
 
 
 class Inscripcion extends Component
@@ -12,21 +12,13 @@ class Inscripcion extends Component
 	
     public function render()
     {
-		$insc = Incripcion::simplepaginate(10);
-		$cursos = Cursos::all();
-		$inscTotal =Incripcion::all();
-		$Total = count($inscTotal);
-		 //$cont = 0;
-		//for (i=0; $i<=$Total; $i++ ){
-			
-			//for (i=0; $i<=$Total; $i++){
-			    				
-			//}
-			
-			
-		//}
 		
-		return view('livewire.inscripcion',compact('insc','cursos','Total'));
+		$insc =Incription::all();
+		$Total = count($insc);
+		$cursos = Curso::all(); 
 		
+		
+		
+		return view('livewire.inscripcion',compact('cursos','insc','Total'));
     }
 }

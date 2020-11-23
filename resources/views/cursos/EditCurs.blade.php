@@ -25,7 +25,7 @@
 			</div>
 			<div>  <br>
 				Descripcion:
-				<textarea name="description" placeholder="Descripcion/Intencion o proposito del curso"   value="{{$edit->description}}" style="width:100%; height:80px; " >
+				<textarea name="description" placeholder="Descripcion/Intencion o proposito del curso"   value="{{ old('description') }}" style="width:100%; height:80px; " >{{$edit->description}}
 				</textarea>  
 			</div>	
 		</div>
@@ -58,9 +58,6 @@
 			</div>	
 			<div  align="center" class="Add-Resp" >
 					Si responsable No esta en la lista de <a href="{{ route('resp-livew')}}" title="Responsabls">click aqui</a>
-<!--
-					<a href="{{ route('responsabls') }}">
--->
 			</div>
 			</div>	
 		

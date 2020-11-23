@@ -10,7 +10,7 @@
 			{{ csrf_field() }}
 		<div class="title-div">
 			 <small class="title-op">Información personal</small>
-			<input type="checkbox" name="id_curso" value="{{ $curso->id }}" style="visibility:hidden" checked>
+			<input type="checkbox" name="curso_id" value="{{ $curso->id }}" style="visibility:hidden" checked>
 			<div style="font-size: 1rem;">  
 				<input type="text" name="cedula"  class="slideselector"   autofocus placeholder="Cedula"  onkeyUp="return ValNumero(this);"  > 
 				@error('cedula')
@@ -23,15 +23,11 @@
 					<label class="alert-danger">Ingrese su nombre</label>
 				@enderror        
 				<input type="text" name="last_name" autocomplete="on" style="width:100%;" placeholder="Apellidos(s)">
-				@error('las_name')
+				@error('last_name')
 					<label class="alert-danger">Indique al menos un apellido</label>
 				@enderror
 			 </div> 
-		</div>         @if (session('mensaje'))
-						<div class="alert alert-success">             
-							<small>{{ session('mensaje') }}  </small>
-						</div>
-						@endif         
+		</div>
 				<br><br><br>
 	   <div class="title-div"> 
 		  <div>

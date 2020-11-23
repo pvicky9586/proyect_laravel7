@@ -14,7 +14,7 @@ class VueCursosControlle extends Controller
      */
     public function index()
     {
-        return App\Cursos::all();
+        return App\Curso::all();
     }
     
     

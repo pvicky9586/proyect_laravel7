@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIncripcionsTable extends Migration
+class CreateProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateIncripcionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('incripcions', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('id_part');
-            $table->integer('id_curso');
-            $table->timestamps();;
+            $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +27,6 @@ class CreateIncripcionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('incripcions');
+        Schema::dropIfExists('profiles');
     }
 }

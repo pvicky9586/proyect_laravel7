@@ -3,7 +3,7 @@ namespace App\Http\Controllers\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Responsabls;
+use App\Responsabl;
 use Auth;
  
    
@@ -19,7 +19,7 @@ class ResponsablsComponent extends Component
     public function render()
     {
 		return view('livewire.responsabls-component', [
-			'resps'=> Responsabls::where(function($sub_query)
+			'resps'=> Responsabl::where(function($sub_query)
 			{
 				$sub_query->where('name','like', '%'.$this->searchResp.'%')
 				->orWhere('last_name','like', '%'.$this->searchResp.'%');
@@ -28,7 +28,7 @@ class ResponsablsComponent extends Component
      }
      
       public function verif(){    		  
-		   $resp = Responsabls::where('cedula','=',$this->cedula)->first();
+		   $resp = Responsabl::where('cedula','=',$this->cedula)->first();
 		   if ($resp)  {
 			    $this->edit($resp->id);  
 			    $this->view = 'edit';
@@ -42,7 +42,7 @@ class ResponsablsComponent extends Component
 		 if ($this->email){
 			  $this->validate([ 'email' => 'email']);  			 
 			}	
-		$resps = Responsabls::create([
+		$resps = Responsabl::create([
 		'cedula' => $this->cedula,
 		'name' => $this->name,	
 		'last_name' => $this->last_name,
@@ -62,7 +62,7 @@ class ResponsablsComponent extends Component
      
      
      public function edit($id){
-		$resp= Responsabls::find($id); 	
+		$resp= Responsabl::find($id); 	
 		$this->resp_id	= $resp-> id;
 		$this->cedula = $resp->cedula;
 		$this->name = $resp->name;
@@ -76,7 +76,7 @@ class ResponsablsComponent extends Component
 	
 	   public function update(){
 		$this->validate(['cedula' => 'required']);
-		$resp = Responsabls::find($this->resp_id); 	
+		$resp = Responsabl::find($this->resp_id); 	
 		
 		$resp->update([
 			'cedula' => $this->cedula,
@@ -94,7 +94,7 @@ class ResponsablsComponent extends Component
      
 	
    public function destroy ($id){
-		Responsabls::destroy($id);  
+		Responsabl::destroy($id);  
 	}
 	
 	
@@ -112,18 +112,3 @@ class ResponsablsComponent extends Component
 
     
 }
-
-//en view -> wire:model="search"
-
-//public $search = 'Jerad Schmidt';
-
-    //public function render()
-    //{
-        //return view('livewire.posts-page', [
-            //'posts' => Post::where(
-                //'title', 'LIKE', '%' . $this->search . '%'
-            //)->orWhere(
-                //'body', 'LIKE', '%' . request('search') . '%'
-            //)->get()
-        //]);
-    //}

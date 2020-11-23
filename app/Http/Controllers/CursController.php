@@ -11,23 +11,19 @@ use Auth;
 use App;
 class CursController extends Controller
 {
-		 public function __construct(){
+		 public function construct(){
 			$this->middleware('auth');
 		  }
    
     public function index(){
-         $cursos = App\Cursos::orderBy('id','DESC')->paginate(4);
+         $cursos = App\Curso::orderBy('id','DESC')->paginate(4);
 		return view('cursos.index',compact('cursos'));
     }
-                //cursos de vista menu
-    //public function index2(){
-         //$cursos = App\Cursos::orderBy('id','DESC')->paginate(2);
-		//return view('Menu.cursos',compact('cursos'));
-    //}
+          
 
     public function create()
     {
-        $resp = App\Responsabls::all();
+        $resp = App\Responsabl::all();
 		return view('cursos/new',compact('resp'));		
     }
 
@@ -36,7 +32,7 @@ class CursController extends Controller
         if(isset($_POST['btnsave'])){
 				$request->validate([ 'title' => 'required', 'img' => 'image|max:1024', // 1MB Max
         ]);
-				$NewCurso = new App\Cursos;				
+				$NewCurso = new App\Curso;				
 				$NewCurso->title = $request->title;
 				$NewCurso->description = $request->description;
 				$NewCurso->duracion = $request->duracion;	
@@ -53,10 +49,10 @@ class CursController extends Controller
 				$NewCurso->save();   
 				
 				
-				$ult = App\Cursos::all();
+				$ult = App\Curso::all();
 				$CursoUlt = $ult->last(); 
 			if ($request->cant_resps == 1){
-				$New = new App\Curso_resps;  
+				$New = new App\CursoResp;  
 				$New->curso_id = $CursoUlt->id;
 				$New->resp_id = $request->resp_id; 				
 				$New->save();
@@ -68,8 +64,8 @@ class CursController extends Controller
 				$NumRespM = count($ArrayIdResp); 
 				 //var_dump ($NumResp); 
 				for($j=0; $j<$NumRespM; $j++){
-					 $ArrayResp = App\Responsabls::where('id','=',$ArrayIdResp[$j])->first();
-					  $New = new App\Curso_resps;  					 
+					 $ArrayResp = App\Responsabl::where('id','=',$ArrayIdResp[$j])->first();
+					  $New = new App\CursoResp;  					 
 					  $New->curso_id = $CursoUlt->id; 
 					  $New->resp_id = $ArrayResp->id;
 					  $New->save();
@@ -97,8 +93,8 @@ class CursController extends Controller
 
     public function edit($id)
     {
-        $resp = App\Responsabls::all();
-		$edit = App\Cursos::findOrFail($id);
+        $resp = App\Responsabl::all();
+		$edit = App\Curso::findOrFail($id);
 		return view('cursos/EditCurs',compact('edit','resp'));
     }
     
@@ -112,7 +108,7 @@ class CursController extends Controller
     public function update(Request $request, $id) {                   
 			if(isset($_POST['btnsave'])){  				
 				$request->validate([ 'title' => 'required']);
-				$update = App\Cursos::findOrFail($id); 					  
+				$update = App\Curso::findOrFail($id); 					  
 				$update->title = $request->title;
 				$update->description = $request->description;  
 				$update->duracion = $request->duracion; 
@@ -128,17 +124,17 @@ class CursController extends Controller
 			$update->save(); 
 			
 
-			$BuscResp = App\Curso_resps::where('curso_id','=',$update->id )->get();  		
+			$BuscResp = App\CursoResp::where('curso_id','=',$update->id )->get();  		
 			$Num = $BuscResp->count();
 			if (isset($BuscResp) and $Num > 0){
 				for($i=1; $i<=$Num; $i++){ 
-					$Eliminar= App\Curso_resps::where('curso_id','=',$update->id )->first();
+					$Eliminar= App\CursoResp::where('curso_id','=',$update->id )->first();
 					$Eliminar->delete();  								    	
 			     }
 			} 				
 			if ($request->cant_resps == 1){  
 				$request->validate([ 'resp' => 'required']); 				
-				$New = new App\Curso_resps;  
+				$New = new App\CursoResp;  
 				$New->curso_id = $update->id;
 				$New->resp_id = $request->resp; 				
 				$New->save();
@@ -149,8 +145,8 @@ class CursController extends Controller
 				$ArrayIdResp = $_POST['resp'];
 				$NumRespM = count($ArrayIdResp);  
 				for($j=0; $j<$NumRespM; $j++){
-					 $ArrayResp = App\Responsabls::where('id','=',$ArrayIdResp[$j])->first();
-					  $New = new App\Curso_resps;  					 
+					 $ArrayResp = App\Responsabl::where('id','=',$ArrayIdResp[$j])->first();
+					  $New = new App\CursoResp;  					 
 					  $New->curso_id = $update->id;					  
 					  $New->resp_id = $ArrayResp->id;
 					  $New->save();

@@ -23,6 +23,11 @@ class CreateResponsablsTable extends Migration
             $table->string('email')->nullable();
             $table->integer('telef')->nullable();
             $table->string('NroWp')->nullable();
+           
+            
+            $table->unsignedBigInteger('profile_id')->nullable();
+            $table->foreign('profile_id')->references('id')->on('profiles')->onDelete('set null');
+            
             $table->integer('user_created');
             $table->integer('user_updated')->nullable();
             $table->timestamps();
