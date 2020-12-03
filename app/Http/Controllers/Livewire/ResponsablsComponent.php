@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Responsabl;
+use App\Profile;
 use Auth;
  
    
@@ -11,17 +12,27 @@ class ResponsablsComponent extends Component
 {
 	 use WithPagination;
 	
-	public $resp_id, $cedula, $name, $last_name, $email, $telef, $NroWp;
+	public $resp_id, $cedula, $name, $last_name, $email, $telef, $NroWp, $profile_id='';
 	public $view = 'create';
 	public $searchResp = '';
 	public $resp, $mensaje;
-	 
+	public $profiles;
+
+	function mount(){
+		$profiles=Profile::all();
+			$this->profiles=$profiles;
+			
+	}
+
+
     public function render()
     {
-		return view('livewire.responsabls-component', [
+    	
+		 //$profiles=Profile::all();
+		return view('livewire.responsabls-component',[			
 			'resps'=> Responsabl::where(function($sub_query)
 			{
-				$sub_query->where('name','like', '%'.$this->searchResp.'%')
+			$sub_query->where('name','like', '%'.$this->searchResp.'%')
 				->orWhere('last_name','like', '%'.$this->searchResp.'%');
 				})->orderBy('id','desc')->simplepaginate(10) 
 		]);
@@ -49,6 +60,7 @@ class ResponsablsComponent extends Component
 		'email' => $this->email,
 		'telef' => $this->telef,
 		'NroWp' => $this->NroWp,
+		'profile_id' => $this->profile_id,
 		'user_created' => Auth::user()->id
 		]);  		 
 			//vaciar los campos
@@ -61,20 +73,20 @@ class ResponsablsComponent extends Component
 	}
      
      
-     public function edit($id){
-		$resp= Responsabl::find($id); 	
-		$this->resp_id	= $resp-> id;
+    public function edit($id){
+		$resp= Responsabl::find($id); 
+		$this->resp_id	= $resp->id;
+		$this->profile_id	= $resp->profile_id;
 		$this->cedula = $resp->cedula;
 		$this->name = $resp->name;
 		$this->last_name = $resp->last_name;
 		$this->email = $resp->email;
 		$this->telef = $resp->telef;
 		$this->NroWp = $resp->NroWp;
-				
 		$this->view = 'edit';		
 	} 
 	
-	   public function update(){
+	public function update(){
 		$this->validate(['cedula' => 'required']);
 		$resp = Responsabl::find($this->resp_id); 	
 		
@@ -85,6 +97,7 @@ class ResponsablsComponent extends Component
 			'email' => $this->email,
 			'telef' => $this->telef,
 			'NroWp' => $this->NroWp,
+			'profile_id' => $this->profile_id,
 			'user_updated' => Auth::user()->id
 		]);
 		$this->default(); 
@@ -106,6 +119,7 @@ class ResponsablsComponent extends Component
 		$this->email = '';
 		$this->telef = '';
 		$this->NroWp = '';
+		$this->profile='';
 		$this->view = 'create';		
 	}
 	

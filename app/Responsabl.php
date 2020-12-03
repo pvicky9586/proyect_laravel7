@@ -8,5 +8,10 @@ class Responsabl extends Model
 {
     
     protected $table = 'responsabls';
-    protected $fillable = [ 'cedula','name','last_name', 'email', 'telef', 'NroWp', 'user_created', 'user_updated' ];
+    protected $fillable = [ 'cedula','name','last_name', 'email', 'telef', 'NroWp', 'user_created', 'user_updated','profile_id'];
+
+    public function profile()
+		{
+				return $this->hasOne(Profile::class);
+		}
 }

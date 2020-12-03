@@ -21,7 +21,17 @@
      <div  style="font-size:1.5rem; padding-top:1%;">     
 		<input type="text" wire:model="last_name" autocomplete="on" placeholder="Apellidos(s)">
 	 </div>
-	 
+
+
+ <div  style="font-size:1.5rem; padding-top:1%;">Profesion: 
+ 	<select wire:model="profile_id">
+ 		<option value="">Seleccione</option>
+ 		@foreach($profiles as $profile)
+ 		<option value="{{$profile->id}}">{{$profile->name}}</option>
+ 		@endforeach
+ 	</select>
+ </div>
+
 	 
        <small style="color:#0000FF;">Información de contacto</small>
      

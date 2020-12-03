@@ -15,11 +15,9 @@ class InscripcionController extends Controller
 	}
 	
 	
-	public function save(Request $request){
-		   
-		$request->validate(['cedula' => 'required', 'name', 'last_name' => 'required']); 
-	                                         
-	   $Buscpart = App\Participant::where('cedula','=',$request->cedula)->first();
+	public function save(Request $request){		   
+		$request->validate(['cedula' => 'required', 'name', 'last_name' => 'required']);
+		$Buscpart = App\Participant::where('cedula','=',$request->cedula)->first();
 	    //echo $request->curso_id;
 		if (isset($Buscpart)){
 		//echo " existe";
@@ -42,8 +40,7 @@ class InscripcionController extends Controller
 			'email' => $request->email,
 			'telef' => $request->telef,                                          
 			'NroWp' => $request->NroWp	
-			]);
-				
+			]);				
 		}
 		$BuscNewpart = App\Participant::where('cedula','=',$request->cedula)->first();	 
 		$Busc1 = App\Incription::where('curso_id','=',$request->curso_id)->get(); 
@@ -60,14 +57,13 @@ class InscripcionController extends Controller
 		'part_id' => $BuscNewpart->id,		
 		'curso_id' => $request->curso_id
 		]);
-				
-		//$pago = App\IncriptionPago::create([
-		//'insc_id' => $insc->id,
-		//'meth_pago' => $request->meth_pago,
-		//'pago' => $request->pago 		
-		//]);
-		
-		//CON ELOQUENT  (YA EXISTE LA RELACION)
+							
+					//$pago = App\IncriptionPago::create([
+					//'insc_id' => $insc->id,
+					//'meth_pago' => $request->meth_pago,
+					//'pago' => $request->pago 		
+					//]);
+		//RELACION CON ELOQUENT 
 		$insc->pago()->create([
 		'meth_pago' => $request->meth_pago,
 		'pago' => $request->pago 		

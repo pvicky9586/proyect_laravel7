@@ -1,4 +1,4 @@
-<div class="tool-liv" style="display:flex;">
+<div class="tool-liv" style="display:flex; margin-left:2%;">
 	<div style="margin-right:2%;" class="">
 		@include("responsabls.$view") 
 	</div>
