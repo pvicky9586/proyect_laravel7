@@ -14,4 +14,14 @@ class Incription extends Model
 		{
 				return $this->hasOne(IncriptionPago::class);
 		}
+
+		public function curs()
+		{
+				return $this->belongsToMany(Curso::class);
+		}
+
+		public function parts()
+		{
+				return $this->belongsToMany(Participant::class);
+		}
 }

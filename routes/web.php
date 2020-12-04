@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Livewire\ResponsablsComponent;
 use Livewire\ParticipantsComponent;
-
+use App\Incription;
 
 
 Route::get('/', function () {
@@ -58,8 +58,10 @@ Route::middleware('auth:web')->group(function () {
 		return view('participants/index');
 	})->name('part-livew');
 	
-	Route::get('/Inscripcion',function(){
-		return view('Inscripcion/index');
+	Route::get('/Inscription',function(){
+		//$reg = App\Incription::with('curs')->get();
+		
+		return view('Insc/index');
 	})->name('insc-auth');
 	
 	//Route::get('/post', Posts::class);
