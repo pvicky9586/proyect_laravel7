@@ -12,16 +12,16 @@ class Incription extends Model
    	
 		public function pago()
 		{
-				return $this->hasOne(IncriptionPago::class);
+				return $this->hasOne(IncriptionPago::class)->withTimestamps();
 		}
 
-		public function curs()
+		public function cur()
 		{
-				return $this->belongsToMany(Curso::class);
+				return $this->belongsTo(Curso::class);
 		}
 
-		public function parts()
+		public function part()
 		{
-				return $this->belongsToMany(Participant::class);
+				return $this->belongsTo(Participant::class);
 		}
 }

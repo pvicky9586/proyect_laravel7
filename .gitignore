@@ -10,4 +10,9 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-/resources/views/Inscription
+/resources/views/layouts/AppAuth
+/resources/views/layouts/AppLivewire
+/resources/views/layout
+/resources/views/responsables/form3
+/resources/views/Menu/Cursos_Insc/inscribirse2
+/resources/views/errors

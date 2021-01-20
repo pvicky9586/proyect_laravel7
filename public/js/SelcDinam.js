@@ -3,12 +3,12 @@ function SelecDinam(){
 	var elementos = formulario.elements; //todos los campos
 	var Resp = formulario.Resp.value; //campos "
 	if(Resp == 1){
-		alert("Selecione");
+		// alert("Selecione");
 		uno.style.display='block';
 		mas.style.display='none';
 	}
 	if(Resp == 2){
-		alert("Marque los Responsables!");
+		// alert("Marque los Responsables!");
 		mas.style.display='block';
 		uno.style.display='none';
 	}

@@ -17,11 +17,3 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-//SISTEMA DE ROUTE EN LARAVEL
-//Route::middleware('thougths:api')->get('/thougths', function (Request $request) {
-    //return $request->thougths();
-//});
-
-
-//Route::get('post', 'RoutePostController@index');
-//Route::get('post/{slug}', 'RoutePostController@show');

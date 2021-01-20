@@ -1,4 +1,4 @@
-@extends('layouts.appAuth')
+@extends('layouts.app')
 @section('title','- Usuarios ')
 @section('content')
 
@@ -32,9 +32,7 @@
 	
 </div>
 
-
-        
-				<!-- IINSCRIPCION-->
+			<!-- IINSCRIPCION-->
 	
    <div class="toll-enl-2">
 		<a href="{{ route('insc-auth') }}">

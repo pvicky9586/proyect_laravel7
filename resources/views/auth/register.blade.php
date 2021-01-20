@@ -1,4 +1,4 @@
-@extends('layouts.appAuth')
+@extends('layouts.app')
 @section('title','- Nuevo Usuario')
 @section('content')
 
@@ -14,13 +14,13 @@
          
 <!--
 			<h2> Cedula de Identidad: <input id="cedula" type="text" class="" name="cedula" value="{{ old('cedula') }}"  placeholder="N°"  autofocus required></h2>
--->
+-->		<div class="form-group">
 			<h3>
 				<input type="text" placeholder="Nombre(s)" class="" name="name" value="{{ old('name') }}" style="width:100%;"required></h3>				
 			<h3>
 				<input type="text" placeholder="Apellido(s)"class="" name="last_name" value="{{ old('last_name') }}" style="width:100%;"required></h3> 
 			
-				<br>		  
+		</div>		  
 		
 				
 				
@@ -36,7 +36,7 @@
                             </span>
                         @endif  
 						<br>
-						<span align="center" style="font-size:16px; color:red; margin-top:25px; margin-right:3%;">
+						<span align="center" class="text-center" style="font-size:0.5rem; color:red; margin-top:25px; margin-right:1%;">
 							 Debe contener: entre 5-10 caractes Alfa-numericos<br>						
 						</span>
                             
@@ -73,13 +73,13 @@
 						</span>
 					 @endif   				
 			       <label style="width:100%;"> Confirme E-mail<br>
-					   <input id="email_verified_at" type="email" name="email_verified_at" placeholder="Confirmación"  style="width:100%;" required >
+					   <input id="email_verified_at" type="email" name="email_verified_at" placeholder="Confirmatión"  style="width:100%;" required >
 				   </label>
 			</div>
 
 			
 <!-- password - CONFIRME password-->
-			   <div style="display: flex; font-size:20px;" class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+			   <div style="display: flex; font-size:1.5rem;" class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 				  <label style="width:100%;">Password<br>
 					<input id="password" type="password" class="" name="password" placeholder="Ingrese su Password"  style="width:100%;" required>
 				 </label>
@@ -90,12 +90,13 @@
 					  @endif
 								
 				 <label style="width:100%">Confirme Password<br>
-					<input id="password-confirm" type="password" class="" name="password_confirmation"  placeholder="Confirmación"  style="width:100%;" required>
-				</label> 
+					<input id="password-confirm" type="password" class="" name="password_confirmation"  placeholder="Confirmatión"  style="width:100%;" required>
+				</label>				
 			 </div>	
-				<span style="font-size:16px; color:red;">
+			 <span style="font-size:0.5rem; color:red;">
 					Password -> debe contener: entre 5-10 caractes Alfa-numericos					
-				</span>				
+				</span>	
+							
 	<input type="text" name="id_user_created" value="{{ Auth::user()->id }}" style="visibility:hidden"  size="0">
 		
 	<div align="center">  

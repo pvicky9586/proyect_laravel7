@@ -19,17 +19,18 @@
  </head>
  
 <body>
- 
+<div>
 <header> 
 	<div>
 		<video   autoplay loop muted >
 			<source src="{{ Storage::url("Header.mp4")}}" type="video/mp4">
 		</video>
 	</div>  
-</header> 	
+</header> 
+
 	<br><br>
 	
-		  <div style="margin-top:13%;">@livewire('app-menu')</div>
+<div style="margin-top:13%;">@livewire('app-menu')</div>
 <!--
 	<div id="Menu" style="display:flex;"> 	
 			<label class="TextMenu"><a href="{{ route('welcome') }}">Inicio</a></label>
@@ -41,14 +42,12 @@
 	</div> 
 	
 -->  
-<div class="cont-auth-menu">
+
 	 <div class="auth-2"> 
 		     @if (Auth::user()) 			 
 				 	<a href="{{ url('/logout') }}"  class="user-auth" data-toggle="dropdown" role="button" aria-expanded="false"> 
 						<?php echo  (strtoupper (Auth::user()->username) )?>
-				    </a>
-				
-				
+				    </a>				
 				@if ((Auth::user()->privileges) === 1)
 					<div align="center" >
 						<a href="{{ route('AdmUser') }}" class=""style="font-size:16px; ">
@@ -56,24 +55,22 @@
 						</a>
 				    </div>
 				@endif
-				<ul class="dropdown-menu" role="menu"><!--dejo abierto 'ul' -->
-				
-				
-				<li> 
-					<a href="{{ route('logout') }}" class="salir" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="Salir">Cerrar Seccion</a>
-					<form id="logout-form" action="{{ route('logout') }} " method="POST">{{ csrf_field() }}  </form> 
-				</li>
-					
-								
-			  @else 
-				<a href="{{ route('login') }}"  style="color:#0000FF;"><img src="{{asset('images/acceso.png')}}">Acceder</a>
-			  @endif   		    	
-			</div>
+				<ul class="dropdown-menu" role="menu"><!--dejo abierto 'ul' -->				
+					<li> 
+						<a href="{{ route('logout') }}" class="salir" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="Salir">Cerrar Seccion</a>
+						<form id="logout-form" action="{{ route('logout') }} " method="POST">{{ csrf_field() }}  </form> 
+					</li>
+						
+									
+				  @else 
+					<a href="{{ route('login') }}"  style="color:#0000FF;"><img src="{{asset('images/acceso.png')}}">Acceder</a>
+				  @endif   		    	
+	</div>
 			
-	</div>		
+	
 
-	<div  class="cont-2 ">					
-		 <div  class="container-app" >
+	<div  class="cont-2">					
+		 <div  class="container-left" >
 			 @yield('content')
 			 @livewireScripts  		      
 		 </div>
@@ -90,8 +87,7 @@
 						<img src="{{ asset('images/Asociados.png')}}" class="img-left" title="Asociados">
 					</a>	
 				</div>    	
-		</div>
- 
+		</div> 
 	</div>
 		
  </div>  

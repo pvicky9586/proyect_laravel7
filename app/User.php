@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Model;
+
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -16,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'privileges',
+        'username', 'email', 'password', 'privileges', 'profession_id',
     ];
 
     /**
@@ -36,6 +38,38 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getAuthIdentifiel()
+    {
+        return $this->getKey(); //obtener el usuario
+    }
+
+    public function getAuthPassword()
+    {
+        return $this->password; //obtener solo password
+    }
+
+    public function getReminderEmail()
+    {
+        return $this->email; //obtener email
+    }
+
+    public function isAdmin(){
+        return $this->email == 'developmentsoft2020@gmail.com';
+    }
+
+    // public function profile()
+    // {
+    //       return $this->belongsTo(Profile::class);
+    // }
+
+
+    public function profession()
+    {
+          return $this->hasOne(Profession::class);
+    }
+
+
     
     
 }

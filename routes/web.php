@@ -4,7 +4,11 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Livewire\ResponsablsComponent;
 use Livewire\ParticipantsComponent;
+
 use App\Incription;
+use App\User;
+use App\Profession;
+use App\Curso;
 
 
 Route::get('/', function () {
@@ -85,3 +89,13 @@ Route::get('/aulas', function() {
 //Route::get('/asoc', function () {
 	//return view('asoc');
 //})->name('ASOC-livew');
+
+
+
+Route::get('/orm', function(){
+	$curso = Curso::find(1);
+
+	$curso->comments;
+	return $curso;
+
+});

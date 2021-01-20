@@ -16,6 +16,7 @@ class CreateResponsablsTable extends Migration
     public function up()
     {
         Schema::create('responsabls', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->integer('cedula')->unique();
             $table->string('name')->nullable();
@@ -26,11 +27,21 @@ class CreateResponsablsTable extends Migration
            
             
             $table->unsignedBigInteger('profile_id')->nullable();
-            $table->foreign('profile_id')->references('id')->on('profiles')->onDelete('set null');
+            $table->unsignedBigInteger('profession_id')->nullable();
+            
             
             $table->integer('user_created');
             $table->integer('user_updated')->nullable();
             $table->timestamps();
+
+            $table->foreign('profile_id')->references('id')->on('profiles')
+            ->onDelete('set null')
+            ->onUpdate('cascade');
+
+            $table->foreign('profession_id')->references('id')->on('professions')
+            ->onDelete('set null')
+            ->onUpdate('cascade');
+
             
         });
     }

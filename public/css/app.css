@@ -148,6 +148,9 @@ b,
 strong {
   font-weight: bolder;
 }
+.bold{
+  font-weight: bold;
+}
 
 small {
   font-size: 80%;
@@ -3572,14 +3575,14 @@ input[type=button].btn-block {
 }
 
 .dropdown-item {
-  display: block;
+  /*display: block;
   width: 100%;
   padding: 0.25rem 1.5rem;
+  white-space: nowrap;*/ 
   clear: both;
   font-weight: 400;
   color: #212529;
-  text-align: inherit;
-  white-space: nowrap;
+  text-align: inherit; 
   background-color: transparent;
   border: 0;
 }

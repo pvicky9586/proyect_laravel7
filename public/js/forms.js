@@ -1,9 +1,6 @@
-
-<script>
 $(form).on('submit', function() {
-if(confirm('¿Realmente desea enviar el formulario?')) {
+if(confirm('¿Realmente desea enviar guardar?')) {
 return true;
 }
 return false;
 });
-</script>

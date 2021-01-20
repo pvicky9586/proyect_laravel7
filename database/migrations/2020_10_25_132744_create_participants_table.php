@@ -14,6 +14,7 @@ class CreateParticipantsTable extends Migration
     public function up()
     {
         Schema::create('participants', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->integer('cedula');
             $table->string('name')->nullable();
@@ -21,10 +22,20 @@ class CreateParticipantsTable extends Migration
             $table->string('email')->nullable();
             $table->string('telef')->nullable();
             $table->string('NroWp')->nullable();
-           
+            $table->unsignedBigInteger('profile_id')->nullable();
+            $table->unsignedBigInteger('profession_id')->nullable();
             $table->integer('user_created')->nullable();
             $table->integer('user_updated')->nullable();
-            $table->timestamps();;
+            
+
+            $table->foreign('profile_id')->references('id')->on('profiles')
+            ->onDelete('set null')
+            ->onUpdate('cascade');
+            $table->foreign('profession_id')->references('id')->on('professions')
+            ->onDelete('set null')
+            ->onUpdate('cascade');
+
+            $table->timestamps();
         });
     }
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Responsabl;
-use App\Profile;
+use App\Profession;
 use Auth;
  
    
@@ -12,15 +12,15 @@ class ResponsablsComponent extends Component
 {
 	 use WithPagination;
 	
-	public $resp_id, $cedula, $name, $last_name, $email, $telef, $NroWp, $profile_id='';
+	public $resp_id, $cedula, $name, $last_name, $email, $telef, $NroWp, $profession_id='';
 	public $view = 'create';
 	public $searchResp = '';
 	public $resp, $mensaje;
-	public $profiles;
+	public $professions;
 
 	function mount(){
-		$profiles=Profile::all();
-			$this->profiles=$profiles;
+		$professions=Profession::all();
+			$this->professions=$professions;
 			
 	}
 
@@ -28,23 +28,23 @@ class ResponsablsComponent extends Component
     public function render()
     {
     	
-		 //$profiles=Profile::all();
+		 //$profiles=Profession:all();
 		return view('livewire.responsabls-component',[			
 			'resps'=> Responsabl::where(function($sub_query)
 			{
 			$sub_query->where('name','like', '%'.$this->searchResp.'%')
 				->orWhere('last_name','like', '%'.$this->searchResp.'%');
-				})->orderBy('id','desc')->simplepaginate(10) 
+				})->orderBy('id','desc')->paginate(10) 
 		]);
      }
      
-      public function verif(){    		  
-		   $resp = Responsabl::where('cedula','=',$this->cedula)->first();
-		   if ($resp)  {
-			    $this->edit($resp->id);  
-			    $this->view = 'edit';
-			    return back()->with('mensaje','Datos Registrados');	
-			}
+    public function verif(){    		  
+	   $resp = Responsabl::where('cedula','=',$this->cedula)->first();
+	   if ($resp)  {
+		    $this->edit($resp->id);  
+		    $this->view = 'edit';
+		    return back()->with('mensaje','Datos Registrados');	
+		}
 			
 	}
      
@@ -60,7 +60,7 @@ class ResponsablsComponent extends Component
 		'email' => $this->email,
 		'telef' => $this->telef,
 		'NroWp' => $this->NroWp,
-		'profile_id' => $this->profile_id,
+		'profession_id' => $this->profession_id,
 		'user_created' => Auth::user()->id
 		]);  		 
 			//vaciar los campos
@@ -68,7 +68,7 @@ class ResponsablsComponent extends Component
 			//$this->name= '';
 			//$this->last_name= '';
 		$this->default();
-			return back()->with('mensaje','Datos Registrados');	
+		return back()->with('mensaje','Datos Registrados');	
 			
 	}
      
@@ -76,7 +76,7 @@ class ResponsablsComponent extends Component
     public function edit($id){
 		$resp= Responsabl::find($id); 
 		$this->resp_id	= $resp->id;
-		$this->profile_id	= $resp->profile_id;
+		$this->profession_id	= $resp->profession_id;
 		$this->cedula = $resp->cedula;
 		$this->name = $resp->name;
 		$this->last_name = $resp->last_name;
@@ -97,7 +97,7 @@ class ResponsablsComponent extends Component
 			'email' => $this->email,
 			'telef' => $this->telef,
 			'NroWp' => $this->NroWp,
-			'profile_id' => $this->profile_id,
+			'profession_id' => $this->profession_id,
 			'user_updated' => Auth::user()->id
 		]);
 		$this->default(); 

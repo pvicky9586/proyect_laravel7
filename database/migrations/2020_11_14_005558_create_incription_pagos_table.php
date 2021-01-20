@@ -23,7 +23,8 @@ class CreateIncriptionPagosTable extends Migration
             ->onUpdate('cascade');            
             
             
-            $table->string('meth_pago')->nullable();                                                              $table->string('pago')->nullable();            
+            $table->string('meth_pago')->nullable(); 
+            $table->string('pago')->nullable();            
             $table->integer('user_created')->nullable();
             $table->integer('user_updated')->nullable();
             $table->timestamps();

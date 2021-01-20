@@ -1,4 +1,4 @@
-html body{ width: 100%; font-size:16px; }
+html body{ width: 100%; font-size:1.5rem; }
 
 
 header {height:15rem; width: 100%; top:0;   left:0; background-color: RGBA(0, 0, 0, 0.75);}    		   
@@ -23,10 +23,10 @@ video {
  }
 
  
-.desc{ font-size: 1.5 rem; padding: 2%; margin-left:5%; margin-right:10%; text-align: center;} 
+.desc{ font-size: 1.5rem; padding: 2%; margin-left:5%; margin-right:10%; text-align: center;} 
 		   
-.desc-curs{ font-size: 1.5 rem; padding: 2%; margin-left:5%; text-align: center;}	   
-.desc-curs-no{ font-size: 3 rem; padding: 2%; margin-left:5%;  text-align: center;}
+.desc-curs{ font-size: 1.5rem; padding: 2%; margin-left:5%; text-align: center;}	   
+.desc-curs-no{ font-size: 3rem; padding: 2%; margin-left:5%;  text-align: center;}
 		   
 .bar-left{ 
 	 width:30%;  
@@ -35,17 +35,17 @@ video {
 	 padding-right:10px;
 	 padding-left:10px;
 	 display:block;
-	   border-left: 2px inset #BFBFBF;  
-	 margin-top:3%; }              
+	 border-left: 2px inset #BFBFBF;  
+	 margin-top:1%; }              
 	 
 	 
 		/* BOTTUN */
 .bt-save{ width:100%;margin-top:10%;;}
 .bt-canc{ margin-top:5px;}
 
-.container-app{width:100%;}
-.container-Auth{ width:100%;}		
-.container-livew{ }	
+.container-left{width:100%;}
+/*.container-Auth{ width:100%;}		
+.container-livew{ }	*/
 	
 .cont-auth-home{ display:flex;width: 100%; margin-top:1%; }
 .cont-2{ display:flex;width: 100%; top:0;  }	
@@ -206,11 +206,11 @@ tr td:last-child{
 
 .TextMenu a{
 	text-align:center;
-	 padding:5px;
-	 text-transform:uppercase;
-	 font-size:1.5rem;	
+	padding:5px;
+	text-transform:uppercase;
+	font-size:1.5rem;	
 	text-decoration: none;
-	border-right: 2px solid #000;
+	border-right: 3px solid  #807b7a;
 	color:#000000;
 	 
 	font-weight: bold;  }

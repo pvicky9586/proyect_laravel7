@@ -1,7 +1,10 @@
 @extends('layouts.appLogin')
 @section('title','- Login')
 @section('content')
-    
+</div>
+      <a href="{{ route('welcome') }}" >
+       <img src="{{asset('images/icons/home.png')}}"  width="100" height="120"></a>
+</div>    
  <div class="wrapper fadeInDown">
   <div id="formContent">
  
@@ -36,10 +39,7 @@
 			</div>
 
   </div>
-</div>
-
-      <a href="{{ route('welcome') }}" ><img src="images/atras.png" align="center" width="100" height="120"></a>
-  </div> 
+ 
 @endsection
 
 

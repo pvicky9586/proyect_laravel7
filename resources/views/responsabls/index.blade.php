@@ -1,4 +1,4 @@
-@extends('layouts.appAuth')
+@extends('layouts.app')
 @section('title','- Responsabls ')
 @section('content')
 
@@ -8,6 +8,7 @@
 			<a href="{{ route('AdmUser') }}"  ><img src="{{ asset('images/irAtras.jpg') }}" width="100" height="120"></a>
 	</div>	
     <div>
+
 		@livewire('responsabls-component')
 
 	</div>

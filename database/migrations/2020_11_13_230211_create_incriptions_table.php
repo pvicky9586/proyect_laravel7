@@ -14,11 +14,19 @@ class CreateIncriptionsTable extends Migration
     public function up()
     {
         Schema::create('incriptions', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->bigIncrements('id');             
             $table->unsignedBigInteger('curso_id')->nullable();
-            $table->foreign('curso_id')->references('id')->on('cursos')->onUpdate('cascade');
             $table->unsignedBigInteger('part_id')->nullable();
-            $table->foreign('part_id')->references('id')->on('participants')->onUpdate('cascade');
+           
+
+            $table->foreign('curso_id')->references('id')->on('cursos')
+            ->onUpdate('cascade')
+            ->onDelete('set null');
+            $table->foreign('part_id')->references('id')->on('participants')
+            ->onUpdate('cascade')
+            ->onDelete('set null');
+
             $table->timestamps();
         });
     }
