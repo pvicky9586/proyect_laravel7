@@ -1,6 +1,6 @@
-<img src="{{asset('images/editar.png')}}" class="img-AddNew"> 
+<img src="{{asset('images/icons/editar.png')}}" class="img-AddNew"> 
 
-@include('responsabls.form')
+@include('Admin.responsabls.form')
 
 <button wire:click="update" class="btn btn-success bnt-lg"> 
 

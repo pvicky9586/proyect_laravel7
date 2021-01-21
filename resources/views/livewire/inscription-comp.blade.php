@@ -4,6 +4,6 @@
 	</div>
 	
    <div class="tool-table">
-		@include('Insc.table')   
+		@include('Admin.Inscrip.table')   
    </div>	
 </div>

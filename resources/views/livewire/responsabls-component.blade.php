@@ -1,9 +1,9 @@
-<div class="tool-liv" style="display:flex; margin-left:2%;">
+<div  style="display:flex;">
 	<div style="margin-right:2%;" class="">
-		@include("responsabls.$view") 
+		@include("Admin.responsabls.$view") 
 	</div>
 	
    <div class="tool-table">
-		@include('responsabls.table')   
+		@include('Admin.responsabls.table')   
    </div>	
 </div>

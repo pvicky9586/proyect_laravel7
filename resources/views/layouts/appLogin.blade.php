@@ -18,13 +18,11 @@
  
 <body>
 
-<header> 
-	<div>
+<header class="header"> 
 		<video   autoplay loop muted >
 			<source src="{{ Storage::url("Header.mp4")}}" type="video/mp4">
 		</video>
-	</div>  
-</header> 	
+</header>	
 		
 
 
@@ -38,7 +36,7 @@
 					@if ((Auth::user()->privileges) === 1)
 					<div style="font-size:14px;">
 						<a href="{{ route('AdmUser') }}" class="">
-						<img src="{{ asset('images/ajustes.png') }}" width="30" height="35">  Adm > Usuarios | Cursos</a> 
+						<img src="{{ asset('images/icons/ajustes.png') }}" width="30" height="35">  Adm > Usuarios | Cursos</a> 
 					  </div>
 				   @endif	
 				   
@@ -48,7 +46,7 @@
 					<form id="logout-form" action="{{ route('logout') }} " method="POST">{{ csrf_field() }}  </form>
 				</li>				
 			  @else 
-				<a href="{{ route('login') }}"  style="color:#FFA500;"><img src="images/acceso.png">Acceder</a>
+				<a href="{{ route('login') }}"  style="color:#FFA500;"><img src="images/icons/acceso.png">Acceder</a>
 			  @endif
 		 </div>	
 		 
@@ -64,9 +62,9 @@
 
 <footer>
 	<div id="footer" align="center"> @ (2020) todos los derechos reservados
-		<a href="" ><img src="{{asset('images/Facebook.png')}}" width="80" height="60" style="float:right; margin-left:20px; opacity:0.5; "></a>
-		<a href="" ><img src="{{asset('images/Twitter.png')}}" width="80" height="60" style="float:right; margin-left:20px;opacity:0.5;"></a>
-		<a href=""><img src="{{asset('images/Messeger.png')}}" width="80" height="60" style="float:right; margin-left:20px; opacity:0.5;"></a>
+		<a href="" ><img src="{{asset('images/icons/Facebook.png')}}" width="80" height="60" style="float:right; margin-left:20px; opacity:0.5; "></a>
+		<a href="" ><img src="{{asset('images/icons/Twitter.png')}}" width="80" height="60" style="float:right; margin-left:20px;opacity:0.5;"></a>
+		<a href=""><img src="{{asset('images/icons/Messeger.png')}}" width="80" height="60" style="float:right; margin-left:20px; opacity:0.5;"></a>
 	</div>
 </footer>
 	

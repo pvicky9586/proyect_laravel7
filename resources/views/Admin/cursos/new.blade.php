@@ -22,7 +22,7 @@
 					
 					<input type="text" name="title" value="{{ old('title') }}" class="slideselector" style="width:100%;" autofocus required autocomplete="on">&nbsp;&nbsp; Descripcion:<br>
 					
-					<textarea  name="description" placeholder="Descripcion/Intencion o proposito del curso" value="{{ old('description') }}"></textarea>
+					<textarea  name="description" placeholder="Description / Intent or purpose of the course" value="{{ old('description') }}"></textarea>
 				</div>	
 		Abjuntar Imagen<input type="file" name="img" accept="image/png, .jpeg, .jpg, image/gif"/>
 		  @error('img')
@@ -38,7 +38,7 @@
 					<input type="radio" id="Resp" name="cant_resps"  value="2">varios?					
 				</div>	
 					<div  align="center" class="Add-Resp" >
-					Si responsable No esta en la lista de <a href="{{ route('resp-livew')}}" title="Responsabls">click aqui</a>
+					Si responsable No esta en la lista de <a href="{{ route('resp-livew')}}" title="Responsibls">click aqui</a>
 
 				</div>
 		</div>	
@@ -60,10 +60,7 @@
 			@endforeach
         </div>
         
-        
   
-        
-        
         
         
 		<div style="margin-left:5%; margin-top:5%;">
@@ -74,15 +71,11 @@
 		<input type="radio" id="public" name="statud"  value="0" onclick="Public()" >No
 		
            <br><br> 
-		      <input type="submit" name="btnsave" class="bt-save tex-bt btn btn-primary" value="Guardar"/>
-
-		<input type="reset" value="Cancelar" class="btn btn-danger bt-canc" >
+		   <input type="submit" name="btnsave" class="bt-save tex-bt btn btn-primary" value="Guardar"/>
+           <input type="reset" value="Cancelar" class="btn btn-danger bt-canc" >
  
-	
 	</form>
-</div>
-	<a href="{{ route('cursos') }}" ><img src="{{ asset('images/irAtras.jpg') }}"  align="left" class="irAtras"></a>  
- </div>	        
+	        
 <script src="{{ asset('js/SelcDinam.js') }}"></script>  
 <script src="{{ asset('js/public.js') }}"></script>
 

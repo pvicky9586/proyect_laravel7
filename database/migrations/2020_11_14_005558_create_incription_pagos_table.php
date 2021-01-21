@@ -19,8 +19,7 @@ class CreateIncriptionPagosTable extends Migration
                        
 			$table->unsignedBigInteger('incription_id')->nullable();
             $table->foreign('incription_id')->references('id')->on('incriptions')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');            
+            ->onDelete('cascade');            
             
             
             $table->string('meth_pago')->nullable(); 

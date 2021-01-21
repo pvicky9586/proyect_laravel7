@@ -10,16 +10,10 @@
 						{{ session('mensaje') }}
 					</div>
 				  @endif
-				  
-				 <div style="margin-top:5%;  display:flex; margin-left:2%; ">	
-			      <div>
-					  <a href="{{ route('Newcurso') }}"  style="font-size:18px;" title="Nuevo Curso"><img src="{{asset('images/bt-new.jpg')}}" class="img-bt-new" >Nuevo Curso</a>
+				  	
+			      <div style="margin-top:5%;  margin-left:2%; font-size:18px;">
+					  <a href="{{ route('Newcurso') }}"  title="Nuevo Curso"><img src="{{asset('images/icons/bt-new.jpg')}}" class="img-bt-new" >Nuevo Curso</a>
 			      </div >
-			       <div align="left" style="margin-left:60%;">
-			           <a href="{{ route('AdmUser') }}" title="ir atras">
-						   <img src="{{ asset('images/irAtras.jpg') }}"  class="irAtras"></a> 
-			       </div>
-			    </div>
 			    
 			 	    
 			    
@@ -47,7 +41,7 @@
 						          <br>
 								<div  align="center">
 									<a href="{{ route('EditCurs', $item) }}" title="editar"> 
-									<img src="{{ asset('images/editar.png') }}" class="edit" align="center">Editar</a>
+									<img src="{{ asset('images/icons/editar.png') }}" class="edit" align="center">Editar</a>
 								</div>   
 					     </div>
 						  <br><br> 

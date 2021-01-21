@@ -13,6 +13,8 @@ class MenuCursosInscripcion extends Component
 	use WithPagination;
 	 
 	//public $cedula, $name;
+	
+	public $name, $email, $comment, $curso_id;
 	public $comments;
 
 	function mount(){
@@ -34,7 +36,37 @@ class MenuCursosInscripcion extends Component
 		//'name' => $this->name				
 	//}
 	
+    public function comment()
+ 	{
+ 	 
+ 		$this->validate([ 'name' => 'required', 'email' => 'required|email', 'comment' => 'required']);	
+ 		                                      
+		$SaveCom = Comment::create([
+		'name' => $this->name,
+		'email' => $this->email,	
+		'comment' => $this->comment,
+		'curso_id' => $this->curso_id	
+		]);
+		$this->default();
+		return redirect()->route('MenuCursos');
+		
+ 		
+ 	}
 
+
+	public function default(){
+		$this->name = '';
+		$this->email = '';			
+		// $this->last_name = '';
+		// $this->id_curso = '';
+		// $this->Met_pago = '';
+		// $this->pago = '';
+		// $this->email = '';
+		// $this->telef = '';
+		// $this->NroWp = '';
+		// $this->view = 'create';		
+	}
+    
     
 }
 

@@ -10,13 +10,20 @@ class InscripcionController extends Controller
     public function index(Request $request){
 			$curso = App\Curso::findOrFail($request->id); 
 			if ($curso){
-				return view('Menu/Cursos_Insc/inscribirse',compact('curso'));
+				return view('Menu/Cursos_Insc_Comm/inscribirse',compact('curso'));
 			}
 	}
 	
 	
 	public function save(Request $request){		   
-		$request->validate(['cedula' => 'required', 'name', 'last_name' => 'required']);
+		$request->validate([
+			'cedula' => 'required|max:10',
+			'name' => 'required',
+			'last_name' => 'required',
+			'meth_pago' => 'required',
+			'pago' => 'required',
+			'email' => 'required|email'
+		]);
 		$Buscpart = App\Participant::where('cedula','=',$request->cedula)->first();
 	    //echo $request->curso_id;
 		if (isset($Buscpart)){
@@ -45,8 +52,7 @@ class InscripcionController extends Controller
 		$BuscNewpart = App\Participant::where('cedula','=',$request->cedula)->first();	 
 		$Busc1 = App\Incription::where('curso_id','=',$request->curso_id)->get(); 
 		$Num = count($Busc1);
-		if(!isset($Busc1) and $Num >= 1){
-			 		
+		if(!isset($Busc1) and $Num >= 1){			 		
 			for ($i=0; $i<$Num; $i++){
 				if ($Busc1[$i]->part_id == $BuscNewpart->id){ 				
 			     return redirect()->route('MenuCursos')->with('mensaje','Ya Usted se encuentra registrado es este curso, consulte contactanos para mas informacion');	
@@ -58,17 +64,20 @@ class InscripcionController extends Controller
 		'curso_id' => $request->curso_id
 		]);
 							
-					//$pago = App\IncriptionPago::create([
-					//'insc_id' => $insc->id,
-					//'meth_pago' => $request->meth_pago,
-					//'pago' => $request->pago 		
-					//]);
-		//RELACION CON ELOQUENT 
+		
+		// $pago = App\IncriptionPago::create([
+		// 	'incription_id' => $insc->id,
+		// 	'meth_pago' => $request->meth_pago,
+		// 	'pago' => $request->pago 		
+		// 	]);
+
+		//RELACION CON ELOQUENT 'error verif'
 		$insc->pago()->create([
+		'incription_id' => $insc->id,
 		'meth_pago' => $request->meth_pago,
 		'pago' => $request->pago 		
 		]);
-		
+		return redirect()->route('MenuCursos')->with('mensaje','welcome to the course ');
 		
 		}	
 		return redirect()->route('MenuCursos');
