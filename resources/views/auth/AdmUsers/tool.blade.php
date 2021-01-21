@@ -1,51 +1,19 @@
-@extends('layouts.app')
-@section('title','- Usuarios ')
+@extends('layouts.appAdmin')
+@section('title','- Section Admin')
 @section('content')
 
-<div class="title" ><b>Usuario | Cursos | Paticipantes | Responsables</b></div>
+<div class="title" >
+	<small>Welcome Section Admin</small>
+</div>
+	<p >Courses | Participants | Responsible | Inscription | Virtual Class | User | Reports</p>
 	
            
 <div class="toll" style="margin-top:5%;">	
-	               <!-- CURSOS -->
-	<div  class="toll-enl" >
-		<img src="{{ asset('images/cursos-online.jpeg') }}"  width="400" height="300" style="opacity:0.5;"> <br>
-		<a href="{{ route('cursos') }}" style="font-size:24px;">  
-				Click aqui
-		</a><BR> para entrar a la seccion de cursos
-	</div>
-				<!-- RESPONSABLS -->
-	 <div class="toll-enl-2">
-	      <a href="{{ route('resp-livew')}}" title="Responsabls">
-			  <img src="{{asset('images/resp.png')}}" width="150" height="300" ><br>Responsables
-		  </a>
+
 	
-	 </div>
-	  
-				<!-- PARTICIPANTS -->
-	
-   <div class="toll-enl-2">
-		<a href="{{ route('part-livew') }}">
-			<img src="{{asset('images/participants.jpg')}}" width="400" height="300" style="opacity:0.3;"><br>
-			Participants
-		</a>
-	</div>
-	
-</div>
-
-			<!-- IINSCRIPCION-->
-	
-   <div class="toll-enl-2">
-		<a href="{{ route('insc-auth') }}">
-			<img src="{{asset('images/reg.jpg')}}" width="400" height="300" style="opacity:0.8;"><br>
-			Inscripcion
-		</a>
-	</div>
 
 
-
-
-
-	<!-- USUARIOS -->
+	<!-- USERS -->
 	<div style=" margin-top:8%; margin-left:2%;" align="center">
 		  @if (session('mensaje'))
 			<div class="alert alert-success">             
@@ -86,8 +54,14 @@
 		</table>           
 		<label>{{ $users->links()}}</label>                              	  
 	</div>
+
+
+</div>
 		
 
+
+	   	
+	
 	
 	
 	

@@ -11,5 +11,7 @@ class InscriptionComp extends Component
     public function render()
     {
         return view('livewire.inscription-comp');
+
+        //component x working
     }
 }

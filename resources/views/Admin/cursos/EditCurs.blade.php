@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appAdmin')
 @section('title','- Cursos')
 @section('content')
 	
@@ -101,11 +101,7 @@
 	</div>	
 	</div>
 			
-	<div>
-		<a href="{{ route('cursos') }}">
-			<img src="{{ asset('images/irAtras.jpg') }}" align="left" class="irAtras">
-		</a>  
-	</div>	
+
 </div>	        
 <script src="{{ asset('js/SelcDinam.js') }}"></script>  
 <script src="{{ asset('js/public.js') }}"></script> 

@@ -20,13 +20,14 @@
  
 <body>
 <div>
-<header class="header"> 
+<header class="header-2"> 
 		<video   autoplay loop muted >
 			<source src="{{ Storage::url("Header.mp4")}}" type="video/mp4">
 		</video>
-</header> 
+</header>  
 
-	<div style="margin-top:13%;">
+	
+<div style="margin-top:10%;">
 		<div>
 			@livewire('app-menu')
 		</div>
@@ -70,37 +71,20 @@
 	</div>
 			
 </div>
+			
+	
 
 	<div  class="cont-2">					
 		 <div  class="container-left" >
 			 @yield('content')
 			 @livewireScripts  		      
 		 </div>
-		 <div class="bar-left" > 
-			<div>
-				<a href="{{ route('AV-livew')}}"> 
-					<img src="{{ asset('images/av2.jpeg')}}" class="img-left" title="entrar al Aula Virtual">
-				</a> 
-		    	 <br><br>
-				<a href="">  
-				<img src="{{ asset('images/Asociados.png')}}" class="img-left" title="Asociados">
-				</a>	
-			</div>    	
-		</div> 
+		    
 	</div>
 		
-   
+ </div>  
 
 
-
-
-<footer>
-	<div id="footer" align="center"> @ (2020) todos los derechos reservados
-		<a href="" ><img src="{{asset('images/icons/Facebook.png')}}" width="80" height="60" style="float:right; margin-left:20px; opacity:0.5; "></a>
-		<a href="" ><img src="{{asset('images/icons/Twitter.png')}}" width="80" height="60" style="float:right; margin-left:20px;opacity:0.5;"></a>
-		<a href=""><img src="{{asset('images/icons/Messeger.png')}}" width="80" height="60" style="float:right; margin-left:20px; opacity:0.5;"></a>
-	</div>
-</footer>
 	
 	
 			<!-- Scripts -->

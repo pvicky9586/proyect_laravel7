@@ -9,6 +9,7 @@ use FilesystemIterator ;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Auth;
 use App;
+use App\Comment;
 class CursController extends Controller
 {
 		 public function construct(){
@@ -17,14 +18,14 @@ class CursController extends Controller
    
     public function index(){
          $cursos = App\Curso::orderBy('id','DESC')->paginate(4);
-		return view('cursos.index',compact('cursos'));
+		return view('Admin.cursos.index',compact('cursos'));
     }
           
 
     public function create()
     {
         $resp = App\Responsabl::all();
-		return view('cursos/new',compact('resp'));		
+		return view('Admin.cursos/new',compact('resp'));		
     }
 
 
@@ -41,8 +42,7 @@ class CursController extends Controller
 					if ($pash){  
 		                $NewCurso->img = $pash;
 		               } 
-				}
-				
+				}				
 				$NewCurso->cant_resps = $request->cant_resps; 
 				$NewCurso->user_created = Auth::user()->id;
 				$NewCurso->statud = $request->statud;
@@ -95,7 +95,7 @@ class CursController extends Controller
     {
         $resp = App\Responsabl::all();
 		$edit = App\Curso::findOrFail($id);
-		return view('cursos/EditCurs',compact('edit','resp'));
+		return view('Admin.cursos.EditCurs',compact('edit','resp'));
     }
     
     
@@ -122,8 +122,6 @@ class CursController extends Controller
 			$update->cant_resps = $request->cant_resps; 
 			$update->user_updated = Auth::user()->id;
 			$update->save(); 
-			
-
 			$BuscResp = App\CursoResp::where('curso_id','=',$update->id )->get();  		
 			$Num = $BuscResp->count();
 			if (isset($BuscResp) and $Num > 0){
@@ -151,15 +149,31 @@ class CursController extends Controller
 					  $New->resp_id = $ArrayResp->id;
 					  $New->save();
 				 } 
-			}	 
-			  			
+			}				  			
 		return redirect()->route('cursos')->with('mensaje','Curso Actualizado');
-		}
-		
+		}		
 	return redirect()->route('cursos');
 	}
 
- 
+
+
+
+ 	// public function comment(Request $request)
+ 	// {
+ 	// 	// return $request->all();
+ 	//  if(isset($_POST['btnsave'])){
+ 	// 	$request->validate([ 'name' => 'required', 'email' => 'required|email', 'comment' => 'required']);
+ 	// 	$SaveCom = new Comment;
+ 	// 	$SaveCom ->name =$request->name;
+ 	// 	$SaveCom ->email =$request->email;
+ 	// 	$SaveCom ->comment =$request->comment;
+ 	// 	$SaveCom ->curso_id =$request->curso_id;
+ 	// 	$SaveCom->save();
+ 		
+ 	// 	return redirect()->route('MenuCursos');
+ 	// 	}
+ 		
+ 	// }
  
     public function destroy($id)
     {

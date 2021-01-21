@@ -1,7 +1,7 @@
 <div>
-<img src="{{asset('images/editar.png')}}" class="img-AddNew"> 
+<img src="{{asset('images/icons/editar.png')}}" class="img-AddNew"> 
 
-@include('participants.form')
+@include('Admin.participants.form')
 
 <button wire:click="update" class="btn btn-success"> Actualizar</button>
 

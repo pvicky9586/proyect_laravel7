@@ -12,7 +12,7 @@ class Incription extends Model
    	
 		public function pago()
 		{
-				return $this->hasOne(IncriptionPago::class)->withTimestamps();
+				return $this->hasOne(IncriptionPago::class);
 		}
 
 		public function cur()
