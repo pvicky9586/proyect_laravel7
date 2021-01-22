@@ -25,7 +25,7 @@ class MenuCursosInscripcion extends Component
     public function render()
     {    
 		return view('livewire.menu-cursos-inscripcion',[
-          'cursos'=>Curso::where('statud', '=', 1)->orderBy('id','desc')->paginate(4) 
+          'cursos'=>Curso::where('statud', '=', 1)->orderBy('id','desc')->simplepaginate(4) 
 		]);
     }
     
@@ -36,36 +36,36 @@ class MenuCursosInscripcion extends Component
 		//'name' => $this->name				
 	//}
 	
-    public function comment()
- 	{
+  //   public function comment()
+ 	// {
  	 
- 		$this->validate([ 'name' => 'required', 'email' => 'required|email', 'comment' => 'required']);	
+ 	// 	$this->validate([ 'name' => 'required', 'email' => 'required|email', 'comment' => 'required']);	
  		                                      
-		$SaveCom = Comment::create([
-		'name' => $this->name,
-		'email' => $this->email,	
-		'comment' => $this->comment,
-		'curso_id' => $this->curso_id	
-		]);
-		$this->default();
-		return redirect()->route('MenuCursos');
+		// $SaveCom = Comment::create([
+		// 'name' => $this->name,
+		// 'email' => $this->email,	
+		// 'comment' => $this->comment,
+		// 'curso_id' => $this->curso_id	
+		// ]);
+		// $this->default();
+		// return redirect()->route('MenuCursos');
 		
  		
- 	}
+ 	// }
 
 
-	public function default(){
-		$this->name = '';
-		$this->email = '';			
-		// $this->last_name = '';
-		// $this->id_curso = '';
-		// $this->Met_pago = '';
-		// $this->pago = '';
-		// $this->email = '';
-		// $this->telef = '';
-		// $this->NroWp = '';
-		// $this->view = 'create';		
-	}
+	// public function default(){
+	// 	$this->name = '';
+	// 	$this->email = '';			
+	// 	// $this->last_name = '';
+	// 	// $this->id_curso = '';
+	// 	// $this->Met_pago = '';
+	// 	// $this->pago = '';
+	// 	// $this->email = '';
+	// 	// $this->telef = '';
+	// 	// $this->NroWp = '';
+	// 	// $this->view = 'create';		
+	// }
     
     
 }

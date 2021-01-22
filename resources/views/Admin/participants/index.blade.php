@@ -5,7 +5,7 @@
 <div class="title" ><b>Participant's</b></div> 
 	   
 	
-<div class="toll">	
+<div class="">	
     @livewire('participants-component')       
 </div>     
 

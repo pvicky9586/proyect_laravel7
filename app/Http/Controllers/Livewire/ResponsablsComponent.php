@@ -7,7 +7,7 @@ use App\Responsabl;
 use App\Profession;
 use Auth;
  
-   
+//Desd Admin   
 class ResponsablsComponent extends Component
 {
 	 use WithPagination;

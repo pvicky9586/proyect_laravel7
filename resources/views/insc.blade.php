@@ -7,7 +7,7 @@
 	
 <div class="toll">
 	
-    <div>@livewire('inscripcion')</div>
+    <div></div>
         
 </div>     
 

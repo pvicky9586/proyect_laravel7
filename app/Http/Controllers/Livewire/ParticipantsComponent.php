@@ -8,7 +8,7 @@ use App\Participant;
 use App\Curso;
 use Auth;
 
-
+//Desd Admin
 class ParticipantsComponent extends Component
 {
 	

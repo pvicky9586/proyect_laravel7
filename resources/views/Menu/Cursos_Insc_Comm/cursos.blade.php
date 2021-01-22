@@ -1,9 +1,5 @@
+<!-- VIEW CURSOS & COMMENT-->
 
-<!--
-     <div> 
-		 <img src="{{ Storage::url("images/logo.png") }}"  width="300"> 
-	 </div>
---> 
 <div>
          @if (session('mensaje'))
 				<div class="alert alert-success">             

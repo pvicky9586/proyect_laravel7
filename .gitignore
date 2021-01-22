@@ -15,4 +15,9 @@ yarn-error.log
 /resources/views/layout
 /resources/views/responsables/form3
 /resources/views/Menu/Cursos_Insc_comm/cursos2
-/resources/views/errors
+/resources/views/Menu/Cursos_Insc_comm/notas
+/resources/views/Menu/Cursos_Insc_comm/create
+/resources/views/insc
+/resources/views/layout
+/resources/views/asoc
+/app/Http/Controllers/Livewire/App/Menu

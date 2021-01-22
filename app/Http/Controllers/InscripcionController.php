@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App;
 use Auth;
+
+
+//integrar meths a comp-livew 'MenuCursosInscComm'
 class InscripcionController extends Controller
 {
     public function index(Request $request){

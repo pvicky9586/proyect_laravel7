@@ -13,7 +13,7 @@ use Livewire\MenuCursosInscripcion;
 
 
 Route::get('/', function () {
-    return view('Menu/home');
+    return view('Menu.home');
 })->name('welcome');
 
 Route::get('/nosotros', function () {
@@ -25,6 +25,9 @@ Route::get('/nosotros', function () {
 //Route::get('/asoc', function () {
 	//return view('asoc');
 //})->name('ASOC-livew');
+Route::get('/aulas', function() {
+	return view('Menu.AV.aulas');
+})->name('AV-livew');
 
 
 //RUTA SIMPLES comp-livewire 
@@ -32,16 +35,21 @@ Route::get('/Menu', function () {
     return view('Menu.menu');
 })->name('menu');
 
-Route::get('/aulas', function() {
-	return view('aulas');
-})->name('AV-livew');
+
 
 
 
 //integrar rutas al componente MenuCursos-Inscripcion add commentarios
 Route::get('/cursos', function () {   
-    return view('Menu/Cursos_Insc_Comm.index');
-})->name('MenuCursos');
+    return view('Menu.Cursos_Insc_Comm.index');
+})->name('cursos.index');
+
+
+
+// Route::resource('/cursos', 'MenuCursosInscripcion')->name('cursos.index');
+
+
+
 
 //Route::post('/cursos', MenuCursosInscripcion::class, 'comment');
 //Route::post('/cursos', 'CursController@comment')->name('comment');

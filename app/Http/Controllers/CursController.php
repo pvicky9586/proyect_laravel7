@@ -10,6 +10,8 @@ use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Auth;
 use App;
 use App\Comment;
+
+//desde Admin
 class CursController extends Controller
 {
 		 public function construct(){

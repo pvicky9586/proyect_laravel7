@@ -8,12 +8,12 @@
 			<label class="alert-danger">Cedula obligarotia</label>
 		@enderror
      </div>
-              @if (session('mensaje'))
+        <!--       @if (session('mensaje'))
 					<div class="alert alert-success">             
 						<small>{{ session('mensaje') }}  </small>
 					</div>
 				 @endif
-
+ -->
      <div  style="font-size: 1.5rem; padding-top:2%;">
 		<input type="text"   wire:model="name" class="slideselecto"  autocomplete="on" placeholder="Nombre(s)"> 
       

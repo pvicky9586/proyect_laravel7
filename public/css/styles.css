@@ -217,15 +217,14 @@ tr td:last-child{
 	 
 	font-weight: bold;  }
 
-.TextMenu a:hover{ 		
+label a .TextMenu:hover{ 		
 	text-decoration: none;
-	color:#FFA500;
+	color:red;
 	}
-
-.TextMenu a:active {
+/*
+.TextMenu.act, .TextMenu:active {
 	color:#1E90FF; 
-	background: red;   /*mantener color de link activo*/
-} 
+} */
 
 details summary::-webkit-details-marker {
     background: red;

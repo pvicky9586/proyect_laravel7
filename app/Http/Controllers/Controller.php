@@ -19,10 +19,10 @@ class Controller extends BaseController
 
 	
 	      
-		public function cursos(Request $request){
-		   $cursos = App\Curso::all();
-			return view('help',compact('cursos'));
-		}
+		// public function cursos(Request $request){
+		//    $cursos = App\Curso::all();
+		// 	return view('help',compact('cursos'));
+		// }
 
 	
 	

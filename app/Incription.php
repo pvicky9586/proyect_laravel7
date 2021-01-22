@@ -12,16 +12,18 @@ class Incription extends Model
    	
 		public function pago()
 		{
-				return $this->hasOne(IncriptionPago::class);
-		}
-
-		public function cur()
-		{
-				return $this->belongsTo(Curso::class);
+			return $this->hasOne(IncriptionPago::class);
 		}
 
 		public function part()
 		{
-				return $this->belongsTo(Participant::class);
+			return $this->belongsTo(Participant::class);
 		}
+
+		//POR VALID
+		
+		// public function cur()
+		// {
+		// 	return $this->hasOne(Curso::class);
+		// }
 }

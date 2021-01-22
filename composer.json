@@ -16,7 +16,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
         "laravelcollective/html": "^6.0",
-        "livewire/livewire": "^2.2",
+        "livewire/livewire": "^2.3",
         "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {

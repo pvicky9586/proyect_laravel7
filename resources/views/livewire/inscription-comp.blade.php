@@ -1,6 +1,6 @@
-<div class="tool-liv" style="display:flex;">
-    <div style="margin-right:2%;" class="">
-		<h1>Formulario</h1> 
+<div  style="display:flex;">
+    <div style="margin-right:2%; margin-left: 3%;" class="">
+		@include('Admin.Inscrip.show') 
 	</div>
 	
    <div class="tool-table">

@@ -1,17 +1,17 @@
-@extends('layouts.app')
+@extends('layouts.appAdmin')
 @section('title','- Inscription ')
 @section('content')
 
-<div class="title" ><b>Inscription's</b></div> 
-	    <div align="right">
-			<a href="{{ route('AdmUser') }}"  ><img src="{{ asset('images/irAtras.jpg') }}" width="100" height="120"></a>
-	     </div>
+
+	   
 	
-<div class="toll">
+<div class="">
+	<h1 class="title" ><b>Inscription's</b></h1> 
 	
-    <div>@livewire('inscription-comp')</div>
+    <div >@livewire('inscription-comp')</div>
         
 </div>     
 
 
 @endsection
+

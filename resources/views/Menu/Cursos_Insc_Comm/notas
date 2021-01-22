@@ -13,6 +13,6 @@
 							Inscripcion
 							</a>	
 -->
-							<!-- <a href="#" wire:click="ir({{ $curso->id }})"  class="btn btn-primary pull-right" data-toggle="modal" data-target="#inscribirse">
-							ventana modal
-							</a>-->	
+		<!-- <a href="#" wire:click="ir({{ $curso->id }})"  class="btn btn-primary pull-right" data-toggle="modal" data-target="#inscribirse">
+				ventana modal
+		</a>-->	

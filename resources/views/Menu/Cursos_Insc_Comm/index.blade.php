@@ -5,7 +5,7 @@
 
  <div class="container">  
 	@livewire('menu-cursos-inscripcion')
-
+<!--ERROR FATAL Undefined property: Livewire\CompilerEngineForIgnition::$files  -->
 </div> 
 
 @endsection
