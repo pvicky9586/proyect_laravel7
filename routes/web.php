@@ -5,11 +5,20 @@ use Illuminate\Http\Request;
 use Livewire\ResponsablsComponent;
 use Livewire\ParticipantsComponent;
 use Livewire\MenuCursosInscripcion;
+use Livewire\InscriptionComp;
 
 // use App\Incription;
 // use App\User;
-// use App\Profession;
+//use App\Profession;
 // use App\Curso;
+
+
+// Route::get('/prof','Controller@pdf');
+Route::get('/chec','Controller@chec');
+
+
+
+
 
 
 Route::get('/', function () {
@@ -110,10 +119,11 @@ Route::middleware('auth:web')->group(function () {
 		return view('Admin.participants.index');
 	})->name('part-livew');
 	
-	Route::get('/Inscription',function(){
+	Route::get('/admin-inscription',function(){
 		//$reg = App\Incription::with('curs')->get();		
 		return view('Admin.Inscrip.index');
 	})->name('insc-auth');
+
 
     
 });

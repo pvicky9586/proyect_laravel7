@@ -11,13 +11,13 @@ class Responsabl extends Model
     protected $fillable = [ 'cedula','name','last_name', 'email', 'telef', 'NroWp', 'user_created', 'user_updated','profile_id'];
 
  
-	public function profession()
-    {
-          return $this->hasOne(Profession::class);
-    }
+	// public function profe()
+ //    {
+ //        return $this->belognsTo(Profession::class);
+ //    }
 
-    public function curs()
-    {
-        return $this->hasMany(Curso::class);
-    }
+ //    public function curs()
+ //    {
+ //        return $this->belognsToMany(Curso::class);
+ //    }
 }

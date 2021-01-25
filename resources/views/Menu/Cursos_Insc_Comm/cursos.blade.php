@@ -127,7 +127,8 @@
             
              <div class="form-group"><!-- class="ckeditor" -->  
                  <small><i class="text-muted">comentar</i></small>                               
-                   <textarea  name="comment" id="comment" align="center" class="form-control"> 
+                   <textarea  name="comment" id="comment" align="center" class="form-control"  placeholder="Enter content"
+            autocomplete="off"> 
                    </textarea>        
                     @error('comment') <span class="text-danger error">enter comment</span>@enderror                   
              </div>

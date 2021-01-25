@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Incription extends Model
 {
       protected $table = 'incriptions';
-      protected $fillable = [ 'curso_id', 'part_id'];
+      protected $fillable = [ 'curso_id', 'part_id','conf'];
       
    	
 		public function pago()

@@ -11,20 +11,16 @@ class Profession extends Model
     //protected $table = 'professions';
     protected $fillable = ['name','abrev'];
 
-    public function users() 
+    public function parts() 
     {
-        return $this->hasMany('App/User'::class);
+        return $this->hasMany(Participant::class);
     }
 
-    // public function resps() 
-    // {
-    //     return $this->hasMany(Responsabl::class);
-    // }
 
-    // public function Parts() 
-    // {
-    //     return $this->hasMany(Responsabl::class);
-    // }
+    public function resps() 
+    {
+        return $this->hasMany(Responsabl::class);
+    }
 
 
 }

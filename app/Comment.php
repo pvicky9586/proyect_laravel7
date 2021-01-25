@@ -10,6 +10,7 @@ class Comment extends Model
 
 	public function curso()
 	{
-		return $this->belongsTo(Curso::class,'curso_1d');
+		return $this->belongsTo(Curso::class);
 	}  
+
 }

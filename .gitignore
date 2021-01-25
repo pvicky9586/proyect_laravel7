@@ -20,4 +20,5 @@ yarn-error.log
 /resources/views/insc
 /resources/views/layout
 /resources/views/asoc
+/resources/views/pdf-prof
 /app/Http/Controllers/Livewire/App/Menu
