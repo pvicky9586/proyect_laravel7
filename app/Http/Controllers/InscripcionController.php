@@ -54,11 +54,13 @@ class InscripcionController extends Controller
 		}
 		$BuscNewpart = App\Participant::where('cedula','=',$request->cedula)->first();	 
 		$Busc1 = App\Incription::where('curso_id','=',$request->curso_id)->get(); 
+		//comprobar si participante esta inscrito al curso
+		//$Busc2 = App\Incription::where('part_id','=',$BuscNewpart)->get(); 
 		$Num = count($Busc1);
 		if(!isset($Busc1) and $Num >= 1){			 		
 			for ($i=0; $i<$Num; $i++){
 				if ($Busc1[$i]->part_id == $BuscNewpart->id){ 				
-			     return redirect()->route('MenuCursos')->with('mensaje','Ya Usted se encuentra registrado es este curso, consulte contactanos para mas informacion');	
+			     return redirect()->route('MenuCursos')->with('mensaje','Ya Usted se encuentra registrado es este curso, contactanos para mas informacion');	
 				} 
 			}
 		}else{   

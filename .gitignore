@@ -21,4 +21,8 @@ yarn-error.log
 /resources/views/layout
 /resources/views/asoc
 /resources/views/pdf-prof
+/piblic/js/conf.js
+/piblic/js/SelcDinam.js
+/piblic/js/SelcDinamiAG.js
 /app/Http/Controllers/Livewire/App/Menu
+/resources/views/layouts/app2

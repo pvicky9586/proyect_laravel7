@@ -4,6 +4,6 @@
 	<title>PDF</title>
 </head>
 <body>
-	{{$prof}}
+	{{$parts}}
 </body>
 </html>

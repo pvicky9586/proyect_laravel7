@@ -6,23 +6,40 @@
 <div>
   
 
-		  <div style="display:flex;"> 
-			  <img src="{{ Storage::url("images/logo.png") }}""  width="300" height="400"> 
+
+
+
+
+		  <div style="display:flex;" class="nosot"> 
+			  
 		 
 
-			  <div align="center" class="sal"><span class="sal-2">¡Hola amigos y amigas! </span>   
-				<p>&nbsp;&nbsp;&nbsp;&nbsp;Somos un equipo 100% comprometidos en brindarles la oportunidad que se ha planteado en pro de su crecimiento tanto personal como profesional</p>	
+			  <div align="center">
+			  	<span class="saludo">Astudillo’s Group </span>   
+				<p>&nbsp;&nbsp;&nbsp;&nbsp; nace cuando nuestros abuelos distinguen que la brisa salina del mar caribe que resecaba sus mejillas hacían juego y se complementaban, se hidrataban... Allí, juntos, inició ese largo viaje de formación humana, parental y académica.</p>	
 			 </div>
+
+			 <img src="{{ Storage::url("images/logo.png") }}""  width="300" height="300"> 
          </div> 
       	
 		
 	   	       
 			
 		<p class="nosot">
-			&nbsp;&nbsp;&nbsp;&nbsp;Miramos al porvenir como el tránsito laborioso de confeccionar el pan. 
-			Concientes que otra sociedad ha surgido.  Donde las fuerzas irruptivas van más allá del conocimiento formal. Mirando en cada entorno un valioso escenario formativo. Donde todos tenemos que desarrollar competencias y habilidades para insertarnos en ellos. Con la certeza de transformarlos para generar conexiones sensibles con el otro.
+			&nbsp;&nbsp;&nbsp; En el caso de nuestros padres, uno nacido en las nobles aguas de Sucre y el otro en la pureza de los llanos Monaguenses. Lograron conquistar a nuestras madres, o ellas a ellos, no lo han aclarado aún… Una en consonancia con la musicalidad y gentileza Larense. La otra haciendo frecuencia con el calor y gusto Zuliano.
 		</p> 
+		<p class="nosot2">
+		&nbsp;&nbsp;&nbsp;De esa sabrosa diversidad venimos nosotros, los nietos. Con toda esa carga de venezolanidad comprendemos la trascendencia de lo universal, de la ciudadanía global. Y por supuesto, al ser los niños del hogar vamos mostrándoles rutas a explorar.</p>
                      	
+		<p class="nosot3">
+		&nbsp;&nbsp;&nbsp;Vale recordar la película <b>Oswald de Disney</b>, cuando tiempo atrás sus ancestros hacían y eran a partir de la magia que albergaba su interior. La comprensión y cuestionamiento de realidades les hacía valorar la formación de la sustancia racional,  intelecto; lo sensible, bondad, cooperación, libertad, justicia; el entrelazamiento, conexión; el trabajo, movimiento… todos sumando desde lo individual a lo colectivo.</p>
+		<p class="nosot2">
+			Pero muchas veces no nos damos cuenta de la fragilidad de ese ecosistema. Que de forma silente una niebla nociva del accionar social pudiese penetrar y obnubilar pensamientos y sentires, dificultando la distinción del bello y hermoso arte que representas, que eres. El nomadismo hipertextual y el distanciamiento de la reflexión profunda generan disonancia en tu naturaleza… Es allí donde queremos perturbar con el fuego del hogar áulico para que nunca se haga lejanía la magia de ser tú. <br>
+			<i  class="h3 text-success">Sofía Anays, Juan Pablo y Juan Javier.</i></p>
+
+	
+	<!-- 
+
 		           <div align="center"  style="font-size:1.5rem;">
 						Nuestra direccion - E-mail: <b class="email">'astudillosgroup@gmail.com' </b> 
 		           </div>
@@ -46,9 +63,12 @@
 							E-mail: JJavier@gmail.com  <br><a href=""><small>mas informacion...</small></a>  
 						</div>
 					</details>
-			    </div>  
+			    </div> -->  
 
  
 </div>
+
+
+
 @endsection
 

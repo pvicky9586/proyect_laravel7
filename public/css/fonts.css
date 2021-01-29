@@ -1,0 +1,46 @@
+@font-face {
+	font-family: 'letra';
+	src:url('fonts/letra.eot?-ibh2ms');
+	src:url('fonts/letra.eot?#iefix-ibh2ms') format('embedded-opentype'),
+		url('fonts/letra.woff?-ibh2ms') format('woff'),
+		url('fonts/letra.ttf?-ibh2ms') format('truetype'),
+		url('fonts/letra.svg?-ibh2ms#letra') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'letra';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mail:before {
+	content: "\e604";
+}
+.icon-house:before {
+	content: "\e622";
+}
+.icon-rocket:before {
+	content: "\e650";
+}
+.icon-suitcase:before {
+	content: "\e652";
+}
+.icon-earth:before {
+	content: "\e654";
+}
+.icon-cross:before {
+	content: "\e678";
+}
+.icon-list2:before {
+	content: "\e696";
+}

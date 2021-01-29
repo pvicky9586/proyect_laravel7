@@ -1,9 +1,7 @@
-html body{ width: 100%; font-size:1.5rem; }
-
-
-header {width: 100%; top:0;   left:0; background-color: RGBA(0, 0, 0, 0.75); }  
+header {width: 100%; top:0;   left:0; text-decoration: none; }  
 .header {height:12rem; position: fixed;}
-.header-2 {height:9rem; position: fixed;}    		   
+.header-2 {height:9rem; position: fixed;}  
+li { text-decoration: none; }  		   
 /*header {
   width: 100%;
   text-align: center;
@@ -29,7 +27,7 @@ video {
 .desc-curs{ font-size: 1.5rem; padding: 2%; margin-left:5%; text-align: center;}	   
 .desc-curs-no{ font-size: 3rem; padding: 2%; margin-left:5%;  text-align: center;}
 		   
-.bar-left{ 
+.bar-right{ 
 	 width:30%;  
 	 height:100vh;
 	 float:right;
@@ -56,13 +54,27 @@ video {
 	scroll-behavior: smooth;
 	height:100vh;
 */
-/*CURSOR*/
+
+/*--View  Menu---*/
+
+	/*nosotros*/
+.saludo{color:#0000FF; font-size:2rem;}
+.nosot{font-size:1.5rem; font-style:oblique; margin-left:5%; margin-right: 5%; text-align:justify; }
+.nosot2{font-size:1.3rem; font-style:oblique; margin-left:5%; margin-right: 5%; text-align:justify; }
+.nosot3{font-size:1rem; font-style:oblique; margin-left:5%; margin-right: 5%; text-align:justify; }
+
+/*cursos*/
+
+	
+
+
+
 .all-scroll{cursor:all-scroll;}"
  .dur-cur{ font-size:1.5rem; font-weight: bold; }            
 .edit{ 
 	width:60; 
 	height:58;}
-..email{ 
+.email{ 
 	color: blue;
 	font-weight:bold; 
 	font-style:italic;
@@ -73,6 +85,7 @@ video {
 .text-12{font-size: 1.5rem;}	
 .text-14{font-size: 1.8rem;}
 .text-16{font-size: 2rem;}		
+
 	
 .form_new{	
 	border: white 8px inset; 
@@ -86,15 +99,7 @@ video {
 footer{width: 100%; background-color: RGBA(0, 0, 0, 0.75); margin-top:2%;}
 #footer{height: 8rem; 	bottom: 0; 	color: white;  	padding:0.5%; }		
 
-.sal{ 
-	font-size:2rem; 
-	font-style: cursive; 
-	font-weight:bold; 
-	margin:5% ;
-	text-align:center;}
-	
-.sal-2{color:#0000FF; font-size:2.5rem;}
-.nosot{font-size:1.5rem; font-style:oblique; margin-left:5%; margin-right: 5%; text-align:justify; }
+
 		
 
 		
@@ -160,6 +165,9 @@ tr td:last-child{
 		width: 100%;  
 		text-align: center;
 		letter-spacing: 2pt;}
+
+
+
 .title-curs{color:#2D2D84; font-size:4rem;}
 .desc-curs{font-size:2rem;}
 
@@ -168,6 +176,15 @@ tr td:last-child{
 		color: #003466;   
 		text-align: center;
 		letter-spacing: 1pt;}
+
+.tite2{
+	color:#FF7A00; 
+	font-size: 36px; 
+	font-family: fantasy;}	
+.tite3{
+	font-size: 1.3rem; 
+	margin: 5%;
+}
 .title-op{ color:#BFBFBF; font-size: 2rem;}		
 .title-div {border-top:2px solid; border-color:#BFBFBF; width:100%;}
 .tex-bt:hover{ 
@@ -204,35 +221,25 @@ tr td:last-child{
 .search-input{ font-weight: bold; font-size:1.5rem; width:100%;}
 
 
-#Menu{
-	margin-left:10%;  color:red;
-	}
 
-.TextMenu a{
-	text-align:center;
-	padding:5px;
-	text-transform:uppercase;
-	font-size:1.5rem;	
-	text-decoration: none;
-	border-right: 3px solid  #807b7a;
-	color:#000000;
-	 
-	font-weight: bold;  }
 
-label a .TextMenu:hover{ 		
-	text-decoration: none;
-	color:red;
-	}
+
+
+
+
+
+
+
 /*
 .TextMenu.act, .TextMenu:active {
 	color:#1E90FF; 
 } */
 
-details summary::-webkit-details-marker {
+/*details summary::-webkit-details-marker {
     background: red;
     color: blue;
     font-size: 30px;
-}
+}*/
 
 
 /*ul {

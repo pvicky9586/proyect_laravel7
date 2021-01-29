@@ -14,7 +14,7 @@ use Livewire\InscriptionComp;
 
 
 // Route::get('/prof','Controller@pdf');
-Route::get('/chec','Controller@chec');
+//Route::get('/chec','Controller@chec');
 
 
 
@@ -39,13 +39,12 @@ Route::get('/aulas', function() {
 })->name('AV-livew');
 
 
-//RUTA SIMPLES comp-livewire 
-Route::get('/Menu', function () {
-    return view('Menu.menu');
-})->name('menu');
-
-
-
+Route::get('/ideas', function () {
+    return view('Menu.ideas.ideas');
+})->name('ideas');	
+Route::get('/tienda', function () {
+    return view('Menu.tienda');
+})->name('tienda');
 
 
 //integrar rutas al componente MenuCursos-Inscripcion add commentarios
@@ -130,7 +129,7 @@ Route::middleware('auth:web')->group(function () {
 
 
 
-
+Route::post('/Admin.inscription', 'PdfController@ConfSave')->name('ConfSave');
 
 
 // RUTAS SIN LOGIN

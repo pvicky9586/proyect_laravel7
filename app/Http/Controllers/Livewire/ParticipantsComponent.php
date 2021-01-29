@@ -123,7 +123,14 @@ class ParticipantsComponent extends Component
     
     
     
-    
+// public function destroy($id)
+//   {
+//     $team=Team::findOrFail($id);
+//     $team->delete();
+//     Storage::delete($team->logo);
+//     return response()->json(['data' => $team],200);
+//   }
+// }    
     
     
     
