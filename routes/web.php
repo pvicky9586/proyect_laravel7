@@ -16,7 +16,13 @@ use Livewire\InscriptionComp;
 // Route::get('/prof','Controller@pdf');
 //Route::get('/chec','Controller@chec');
 
+Route::get('/menu', function () {
+    return view('menu');
+});
 
+Route::get('/js', function () {
+    return view('jsc');
+});
 
 
 
@@ -69,27 +75,19 @@ Route::post('/inscribirse', 'InscripcionController@save')->name('save');
 
 
 
-
-
-
-
-
-
-
-//VIEW ADMIN
-Route::get('/privileged-user', function(){
-	return view('Admin.tool');
-})->name('Admin');
-
-Route::get('/Admin-class', function() {
-	return view('Admin.Class.aulas');
-})->name('class');
-
 //---------USER
+	
+
+
 Auth::routes();
-Route::get('/auth/register', function(){
-	return view('auth/register');
-})->name('register'); 
+
+// Route::get('/auth/register', function(){
+// 	return view('auth/register');
+// })->name('register'); 
+
+
+
+
 
 
 
@@ -99,7 +97,10 @@ Route::get('/auth/register', function(){
 
 Route::get('/auth/AdmUsers/tool', 'Auth\RegisterController@index')->name('AdmUser');
 Route::get('/auth/AdmUser/detalle/{id}', 'Auth\RegisterController@ver')->name('ver');
-Route::post('/auth/register', 'Auth\RegisterController@create')->name('createUser');
+Route::get('/auth/register', 'Auth\RegisterController@create')->name('create');
+Route::post('/auth/register', 'Auth\RegisterController@saveUser')->name('saveUser');
+
+Route::post('/auth/login', 'Auth\RegisterController@create')->name('createUser');
 
 Route::get('/admin-cursos','CursController@index')->name('cursos');
 Route::get('/new-curso', 'CursController@create')->name('Newcurso');
@@ -107,9 +108,25 @@ Route::post('/new-curso','CursController@store')->name('SaveCurso');
 Route::get('/edit-curs/{id?}', 'CursController@edit')->name('EditCurs');
 Route::put('/edit-curs/{id}','CursController@update')->name('UpCurso');
 
+
+//rutas livewire Protegidas
 Route::middleware('auth:web')->group(function () {
-    //Route::get('/responsabls/index/{id?}',ResponsablsComponent::class)->name('resp-livew');
-    //Route::get('/participants/index/{id?}',ParticipantsComponent::class)->name('part-livew');
+
+    Route::get('/privileged-user', function(){
+		return view('Admin.tool');
+	})->name('Admin');
+
+    // // Route::get('/Admin.responsabls', ResponsablsComponent::class)->name('resp-livew');
+    // Route::get('/Admin.participants', ParticipantsComponent::class)->name('part-livew');
+	//VIEW ADMIN
+	
+
+	Route::get('/Admin-class', function() {
+		return view('Admin.Class.aulas');
+	})->name('class');
+
+	
+
     Route::get('/Responsabls',function(){
 		return view('Admin.responsabls/index');
 	})->name('resp-livew');
@@ -122,15 +139,24 @@ Route::middleware('auth:web')->group(function () {
 		//$reg = App\Incription::with('curs')->get();		
 		return view('Admin.Inscrip.index');
 	})->name('insc-auth');
+	
 
+	Route::get('/Admin.inscription', InscriptionComp::class,'destroy');
 
+	Route::get('/Admin.inscription/{id}', 'PdfController@ConfPDF')->name('ConfPDF');
     
 });
 
 
 
-Route::post('/Admin.inscription', 'PdfController@ConfSave')->name('ConfSave');
 
+
+
+
+	// Route::get('/pdf',function(){
+	// 	//$reg = App\Incription::with('curs')->get();		
+	// 	return view('Admin.Inscrip.pdf-valid');
+	// });
 
 // RUTAS SIN LOGIN
 //Ruta vuejs   

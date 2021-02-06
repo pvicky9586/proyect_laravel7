@@ -14,20 +14,17 @@ class Participant extends Model
     // }
 
 
+    public function profession()
+    {
+          return $this->belongsTo(Profession::class);
+    }
 
 
 
-
-
-
-
-
-    
-
-    // public function curs()
-    // {
-    //    return $this->hasMany(Cursos::class);
-    // }
+    public function inscs()
+    {
+       return $this->hasMany(Incription::class);
+    }
 
 
 

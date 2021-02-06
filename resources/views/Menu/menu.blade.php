@@ -8,7 +8,7 @@
 			<nav>
 				<ul>
 					<li class=" dropdown-item {{ request()->routeIs('welcome') ? 'd-lg-none' : ''}}">
-						<a href="{{ route('welcome') }}"><img src="{{asset('images/icons/home.png')}}" width="80" height="60"></a>
+						<a href="{{ route('welcome') }}"><img src="{{asset('images/icons/home.png')}}" width="70" height="60"></a>
 					</li>
 					<li class="TextMenu  {{ request()->routeIs('nosotros') ? 'active' : ''}}">
 						<a href="{{ route('nosotros') }}"><span class="icon-suitcase {{ request()->routeIs('welcome') ? 'd-lg-none' : ''}}"></span>Nosotros</a>
@@ -22,7 +22,7 @@
 
 
 					<li class="nav-item dropdown">
-						<a href="{{route('ideas')}}" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><img src="{{asset('images/icons/idea.jpeg')}}" class="icon-book"></span>
+						<a href="" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><img src="{{asset('images/icons/idea.jpeg')}}" class="icon-book"></span>
 							IDEAS
 						</a>
 
@@ -49,10 +49,10 @@
 
 
 					<li class="TextMenu">
-						<a href="{{route('AV-livew')}}"><span class="icon-earth">AulaVirtual</a>
+						<a href=""><span class="icon-earth">AulaVirtual</a>
 					</li>
 					<li class="TextMenu">
-						<a href="{{route('tienda')}}" title="un souvenir para tí">Tienda</a>				
+						<a href="" title="un souvenir para tí">Tienda</a>				
 					</li>
 					<li class="TextMenu">
 						<a href=""><span class="icon-mail">Contactos</a>

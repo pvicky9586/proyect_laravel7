@@ -5,33 +5,32 @@
 <div class="title" >
 	<small>Welcome Section Admin</small>
 </div>
-	<p >Courses | Participants | Responsible | Inscription | Virtual Class | User | Reports</p>
 	
            
-<div class="toll" style="margin-top:5%;">	
+<div class="toll" style="margin-left: 10%;" align="center">	
 
 	
 
 
 	<!-- USERS -->
-	<div style=" margin-top:8%; margin-left:2%;" align="center">
+	<div style=" margin-left:2%; width: 70%;" >
 		  @if (session('mensaje'))
 			<div class="alert alert-success">             
 				{{ session('mensaje') }}
 			</div>
 		 @endif
 		 <label style="" align="center">
-			<a href="{{ route('register') }}">
-				<img src="{{ asset('images/bt-new.jpg') }}" class="img-bt-new">
+			<a href="{{ route('create') }}">
+				<img src="{{ asset('images/icons/bt-new.jpg') }}" class="img-bt-new">
 				<img src="{{asset('images/loguear.jpeg')}}" class="img-bt-user"> 					
 			</a> 				
 		</label> 		
-		<table class="table table-striped" >
+		<table class="table table-striped" align="center">
 				<thead class="thead-dark">
 					<tr>      
-						<th scope="col">Usuario</th>
-						<th scope="col">Nombres</th>
-						<th scope="col">Privilegios</th>
+						<th scope="col">User</th>
+						<th scope="col">Name - Last name</th>
+						<th scope="col">Priviles</th>
 					</tr>
 				</thead>			
 			@foreach($users as $item)

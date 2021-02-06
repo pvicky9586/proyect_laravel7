@@ -60,7 +60,7 @@ class InscripcionController extends Controller
 		if(!isset($Busc1) and $Num >= 1){			 		
 			for ($i=0; $i<$Num; $i++){
 				if ($Busc1[$i]->part_id == $BuscNewpart->id){ 				
-			     return redirect()->route('MenuCursos')->with('mensaje','Ya Usted se encuentra registrado es este curso, contactanos para mas informacion');	
+			     return redirect()->route('cursos.index')->with('mensaje','Ya Usted se encuentra registrado es este curso, contactanos para mas informacion');	
 				} 
 			}
 		}else{   
@@ -82,10 +82,10 @@ class InscripcionController extends Controller
 		'meth_pago' => $request->meth_pago,
 		'pago' => $request->pago 		
 		]);
-		return redirect()->route('MenuCursos')->with('mensaje','welcome to the course ');
+		return redirect()->route('cursos.index')->with('mensaje','welcome to the course ');
 		
 		}	
-		return redirect()->route('MenuCursos');
+		return redirect()->route('cursos.index');
 		
 	}
 	

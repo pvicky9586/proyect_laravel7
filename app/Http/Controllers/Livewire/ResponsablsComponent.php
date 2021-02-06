@@ -53,7 +53,7 @@ class ResponsablsComponent extends Component
 		 if ($this->email){
 			  $this->validate([ 'email' => 'email']);  			 
 			}	
-		$resps = Responsabl::create([
+		$resp = Responsabl::create([
 		'cedula' => $this->cedula,
 		'name' => $this->name,	
 		'last_name' => $this->last_name,
@@ -62,7 +62,12 @@ class ResponsablsComponent extends Component
 		'NroWp' => $this->NroWp,
 		'profession_id' => $this->profession_id,
 		'user_created' => Auth::user()->id
-		]);  		 
+		]); 
+
+		if(Auth::user()){
+			$resp->user_created = Auth::user()->id;
+			$resp->save();		
+		} 		 
 			//vaciar los campos
 			//$this->cedula = '';
 			//$this->name= '';
@@ -88,6 +93,9 @@ class ResponsablsComponent extends Component
 	
 	public function update(){
 		$this->validate(['cedula' => 'required']);
+		 if ($this->email){
+		  $this->validate([ 'email' => 'email']);  			 
+		  }
 		$resp = Responsabl::find($this->resp_id); 	
 		
 		$resp->update([
@@ -100,6 +108,12 @@ class ResponsablsComponent extends Component
 			'profession_id' => $this->profession_id,
 			'user_updated' => Auth::user()->id
 		]);
+
+
+		if(Auth::user()){
+			$resp->user_created = Auth::user()->id;
+			$resp->save();		
+		} 
 		$this->default(); 
 		return back()->with('mensaje','Datos Actualizados');	
 	}

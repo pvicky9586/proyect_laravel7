@@ -5,17 +5,18 @@
 	</div>
 	@endif
  -->
- 		@if ($exp === 1)
-	    <div style="margin-right:2%; width: 30%;" class="">
-	    	@include('Admin.Inscrip.exp') 
+ 		@if ($ver === 1)
+ 		
+	    <div style="margin-right:1%; width: 40%;" class="">
+	    	@include('Admin.Inscrip.show') 
 		</div>
 		@endif
 
-	@if ($valid === 1)
-	<div style="margin-right:2%; width: 30%;" class="">
-    	@include('Admin.Inscrip.valid-show')
-    </div>	
-	@endif
+		@if ($valid === 1)
+		<div style="margin-right:2%; width: 30%;" class="">
+	    	@include('Admin.Inscrip.valid-show')
+	    </div>	
+		@endif
 	
    <div class="tool-table">
 		@include('Admin.Inscrip.table')   

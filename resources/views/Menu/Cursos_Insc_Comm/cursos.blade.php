@@ -8,7 +8,7 @@
 			@endif  
 @foreach( $cursos as $curso)
 <div class="listCurs" > 
-		<p class="display-4 text-primary text-center text-uppercase" >{{ $curso->title}}</p>				   
+		<p class="display-5 text-primary text-center text-uppercase" >{{ $curso->title}}</p>				   
 	    <div style="display:flex;">
 
 
@@ -37,9 +37,9 @@
 			</div>
 
 
-            <div align="right" style="padding:0; width: 40%;">
+      <div align="right" class="img-curs">
 				<img src="{{ Storage::url("$curso->img") }}" alt="imagen no disponible" />  
-            </div>
+      </div>
 
 
     	</div>

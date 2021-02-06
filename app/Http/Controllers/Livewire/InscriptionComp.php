@@ -26,17 +26,20 @@ class InscriptionComp extends Component
 	use WithPagination;
 
 	public $title, $curso_id, $description, $duracion;
-	public $ver, $valid, $exp;
-	public $inscs, $parts, $conf=[], $Marc;
-	public $CursSelec, $ins;
+	public $ver, $valid;
+	public $inscs, $parts, $insc_id=[], $Marc;
+	public $CursSelec;
+	//public $inscSelec, $confir;
+
 	
 
 
    public function render()
     {
         return view('livewire.inscription-comp',[
-        	'cursos' => Curso::withCount(['inscs'])->get()
+        	'cursos' => Curso::withCount(['inscs'])->simplepaginate(10) 
     	]);
+
 
     }
 
@@ -47,51 +50,13 @@ class InscriptionComp extends Component
     	$this->parts = $parts;		
 	}
 	  
- //    public function store() {
-			
-	// }
-     
-
-
-
- // public function export()
- //    {
-
- //    	$parts = Participant::all();
- //    	$pdfContent = PDF::loadView('pdf-prof', $parts)->output();
- //    	$this->parts = $parts;
- //    	return response()->streamDownload(
- //    		fn() => print($pdfContent), 'pdf.pdf');
- //    	)
-
- //    	//return response()->download(storage_path('pdf'));
- //    }
 
 
 
 
 
 
-
-   public function ConfSave() {
-  //   	$Marc = Count($this->conf);
-  //   	//$this->Marc= $Marc;
-  //   	for($i=0; $i<$Marc; $i++){
-  //   		$ins = Incription::find($this->conf[$i]);
-  //       	$ins->update([
-		// 		'conf' => 1
-		// 	]); 
-
-  //   	}
-  //   	$this->valid = '';
-  //   	$this->ver = '';
-
-		// return back()->with('mensaje','Lista Actualizada');	
-  //   }
-		$this->ver = '';
- 	 	$this->valid = '';
-		return back()->with('mensaje','Lista Actualizada');	
-}
+  
 
     public function ConfIns($id) { //ver Inscritos/aspirantes
     	$this->valid = 1;
@@ -102,22 +67,73 @@ class InscriptionComp extends Component
 	}
 
 
-     
- // 	public function show($id){
 
- // 		$this->ver = 1;
- // 		$this->valid = '';
-	// 	$curs = Curso::find($id);
-	// 	$this->title = $curs->title; 
-	// 	$this->description = $curs->description; 		
-	// 	$this->duracion = $curs->duracion; 	
-	// } 
+
+
+
+	public function conf($id) { //Save confir 
+
+		//$this->confir=$this->conf;
+		// $CursSelec = Incription::where('curso_id',$CursSelec);
+		
+    	 $cont_insc = Count($this->insc_id);
+
+    	$this->CursSelec = $CursSelec;
+
+    	// $this->insc=$this->insc_id;
+      for($i=0; $i<$cont_insc; $i++){
+         	//$this->confir = $this->insc_id[$i];	
+		    $inscSelec = Incription::find($this->insc_id[$i]);
+		   	$inscSelec->conf = 1;
+			$inscSelec->save();	
+
+		    if(Auth::user()){
+			$inscSelec->user_conf = Auth::user()->id;
+			$inscSelec->save();		
+			}
+		
+            //$this->inscSelec = $inscSelec;	
+           
+       }
+       $this->valid = 1;
+    	return back()->with('conf','confirmado');	
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public function ConfSavePDF() {
+		
+	}
+
+
+
+
 	
-		public function pdf($id){
-			$this->ver = '';
+	public function ver($id){
+			$this->ver = 1;
  	 		$this->valid = '';
-		return back()->with('mensaje','Lista Actualizada');	
+ 	 		$CursSelec = Curso::find($id);
+    		$this->CursSelec = $CursSelec;
+    		//return back()->with('mensaje','Lista Actualizada');	
 	} 
+
+	 public function destroy($id){	 
+		$insc= Incription::destroy($id); 
+		$this->valid = 1;
+    	 return back()->with('alert','Borrado de la lista');
+
+	}
 	
     
     

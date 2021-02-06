@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Incription extends Model
 {
       protected $table = 'incriptions';
-      protected $fillable = [ 'curso_id', 'part_id','conf'];
+      protected $fillable = [ 'curso_id', 'part_id','conf','user_conf'];
       
    	
 		public function pago()
@@ -19,6 +19,20 @@ class Incription extends Model
 		{
 			return $this->belongsTo(Participant::class);
 		}
+
+		
+		// $users = Incription::where('conf', 1)->get();
+
+
+ // public function update($id)
+ //    {
+ //      return $this->"updateee";
+
+ //        // $this->post->save();
+ //    }
+
+
+
 
 		//POR VALID
 		

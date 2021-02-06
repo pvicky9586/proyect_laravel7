@@ -30,50 +30,50 @@
 </header>  
 
 	
-<div style="margin-top:10%;">
-		<div>
-			@livewire('app-menu')
-		</div>
-	
+<div style="margin-top:13%;" class="input-group">
 
-<!--
-	<div id="Menu" style="display:flex;"> 	
-			<label class="TextMenu"><a href="{{ route('welcome') }}">Inicio</a></label>
-			<label class="TextMenu"><a href="{{ route('nosotros') }}">Nosotros</a></label>			
-			<label class="TextMenu"><a href="#">Cursos</a></label>  		
-			<label class="TextMenu"><a href="" >Libros</a></label>			
-			<label class="TextMenu"><a href="">AulaVirtual</a></label>
-			<label class="TextMenu"><a href="">Contactos</a></label>
-	</div> 
-	
--->  
-
-	 <div class="auth">
-
-		     @if (Auth::user()) 			 
-				 	<a href="{{ url('/logout') }}"  class="user-auth" data-toggle="dropdown" role="button" aria-expanded="false"> 
-						<?php echo  (strtoupper (Auth::user()->username) )?>
-				    </a>				
-				@if ((Auth::user()->privileges) === 1)
-					<div align="center" >
-						<a href="{{ route('Admin') }}" class=""style="font-size:16px; ">
-							<img src="{{ asset('images/icons/ajustes.png') }}" width="30" height="35" >  Usuario Administrar
-						</a>
-				    </div>
-				@endif
-				<ul class="dropdown-menu" role="menu"><!--dejo abierto 'ul' -->				
-					<li> 
-						<a href="{{ route('logout') }}" class="salir" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="Salir">Cerrar Seccion</a>
-						<form id="logout-form" action="{{ route('logout') }} " method="POST">{{ csrf_field() }}  </form> 
-					</li>
-						
-									
-				  @else 
-					<a href="{{ route('login') }}"  style="color:#0000FF;"><img src="{{asset('images/icons/acceso.png')}}">Acceder</a>
-				  @endif   		    	
+	<div>
+		@livewire('app-menu')
 	</div>
-			
+		@if (Auth::user())
+		<div class="auth"> 
+		    <a href="{{ url('/logout') }}"  class="user-auth" data-toggle="dropdown" role="button" aria-expanded="false"> 
+				<?php echo  (strtoupper (Auth::user()->username) )?>
+			</a>				
+			@if ((Auth::user()->privileges) === 1)
+				<a href="{{ route('Admin') }}" class="">
+					<img src="{{ asset('images/icons/ajustes.png') }}" width="30" height="35" >  Usuario Administrar
+				</a>			    
+			@endif
+			 <ul class="dropdown-menu" role="menu"><!--dejo abierto 'ul' -->				
+			<li> 
+			  	<a href="{{ route('logout') }}" class="salir" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="Salir">Cerrar Seccion
+			   	</a>
+			<form id="logout-form" action="{{ route('logout') }} " method="POST">{{ csrf_field() }}  
+			</form> 
+			</li>
+		@else 
+			<a href="{{ route('login') }}"  style="color:#0000FF;"><img src="{{asset('images/icons/acceso.png')}}">
+				Acceder
+			</a>			   		    	
+		@endif
+	</div>
+
 </div>
+	<div class="input-group {{ request()->routeIs('inscribirse/2') ? 'd-lg-none' : ''}}">
+	 	<div class="form-outline">
+	  		<form class="">
+		    <input type="search" id="form1" class="form-control" placeholder="Search" />	    
+		</div>
+		   <button type="button" class="btn btn-primary" style="font-size: 0.8rem;">  
+	  	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+		<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+		</svg>
+	</button>
+	  </form>  
+	</div>
+
+
 			
 	
 
@@ -98,8 +98,10 @@
     
 
     <script src="{{asset('js/menu.js')}}"></script>
+
+    @yield('script')
 </body>
 </html>
 
 
-    @yield('script')
+   

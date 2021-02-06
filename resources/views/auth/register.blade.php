@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appAdmin')
 @section('title','- Nuevo Usuario')
 @section('content')
 
@@ -9,16 +9,16 @@
 <div class="toll">
 	<div class="form_new"> 
 		
-		<form class="form-horizontal" method="POST" action="{{ route('createUser') }}" name="formulario" id="formulario">
+		<form class="form-horizontal" method="POST" action="{{ route('saveUser') }}" name="formulario" id="formulario">
           {{ csrf_field() }}
          
 <!--
-			<h2> Cedula de Identidad: <input id="cedula" type="text" class="" name="cedula" value="{{ old('cedula') }}"  placeholder="N°"  autofocus required></h2>
+			<h2> Cedula de Identidad: <input id="cedula" type="text" class="" name="cedula" value="{{ old('cedula') }}"  placeholder="N°"  autofocus ></h2>
 -->		<div class="form-group">
 			<h3>
-				<input type="text" placeholder="Nombre(s)" class="" name="name" value="{{ old('name') }}" style="width:100%;"required></h3>				
+				<input type="text" placeholder="Nombre(s)" class="" name="name" value="{{ old('name') }}" style="width:100%;"></h3>				
 			<h3>
-				<input type="text" placeholder="Apellido(s)"class="" name="last_name" value="{{ old('last_name') }}" style="width:100%;"required></h3> 
+				<input type="text" placeholder="Apellido(s)"class="" name="last_name" value="{{ old('last_name') }}" style="width:100%;"></h3> 
 			
 		</div>		  
 		
@@ -28,7 +28,7 @@
 			        <div style=" width:100%; display:flex;">
 						
 						<label for="username" class="" align="center"><b  style="font-size:24px; color:#7A551E;" >Nombre de Usuario</b>   <br>           
-							<input id="username" type="text" class="" name="username" value="{{ old('username') }}"    style="font-size:20px; color:#7A331E;" required>
+							<input id="username" type="text" class="" name="username" value="{{ old('username') }}"    style="font-size:20px; color:#7A331E;">
 						</label>
                         @if ($errors->has('username'))
                             <span class="help-block">
@@ -36,13 +36,13 @@
                             </span>
                         @endif  
 						<br>
-						<span align="center" class="text-center" style="font-size:0.5rem; color:red; margin-top:25px; margin-right:1%;">
+						<span align="center" class="text-center notas" style="">
 							 Debe contener: entre 5-10 caractes Alfa-numericos<br>						
 						</span>
                             
                   
                             <div for="privileges" class=""><b   style="font-size:24px; color:#7A551E; widht:100%;" align >Privilegios</b><br>
-                               <select name="privileges" id="privileges" class="form-control"    style="font-size:20px; color:#7A331E; width:100%;"required>
+                               <select name="privileges" id="privileges" class="form-control"    style="font-size:20px; color:#7A331E; width:100%;">
                                 <option value=""> Seleccione</option>
                                 <option value="3"> Invitado</option>
                                  <option value="2">Super Usuario</option>
@@ -63,39 +63,44 @@
 
 			   
 <!-- EMAIL -CONFIRME EMAIL-->
-			 <div style="display: flex; font-size:20px;"class="form-group{{ $errors->has('email') ? ' has-error' : '' }}" >
-					<label style="width:100%;">E-Mail<br>
-					   <input id="email" type="email" style="width:100%;" name="email" value="{{ old('email') }}"  placeholder="direccion@example.com" style="width:100%;" required>
-					</label>
+			 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+					<label >E-Mail 	</label>
+					   <input id="email" type="email"  class="form-control"  name="email" value="{{ old('email') }}"  placeholder="direccion@example.com" >
+				
 					  @if ($errors->has('email'))
 						 <span class="help-block">
 							 <strong>{{ $errors->first('email') }}</strong>
 						</span>
 					 @endif   				
-			       <label style="width:100%;"> Confirme E-mail<br>
-					   <input id="email_verified_at" type="email" name="email_verified_at" placeholder="Confirmatión"  style="width:100%;" required >
-				   </label>
+			       <span> Confirme E-mail</span>
+					   <input type="email" id="email_verified_at" name="email_verified_at" placeholder="Confirmatión"   class="form-control">
+				   
 			</div>
 
 			
 <!-- password - CONFIRME password-->
-			   <div style="display: flex; font-size:1.5rem;" class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-				  <label style="width:100%;">Password<br>
-					<input id="password" type="password" class="" name="password" placeholder="Ingrese su Password"  style="width:100%;" required>
-				 </label>
+			   <div class="form-group">
+				  <label>Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				  	<span class="notas"><i>
+						debe contener: entre 5-10 caractes Alfa-numericos</i>					
+					</span>	
+				</label>
+
+
+					<input id="password" type="password" class="form-control" name="password" placeholder="Insert Password" >
+				
 					   @if ($errors->has('password'))
 						 <span class="help-block">
 							 <strong>{{ $errors->first('password') }}</strong>
 						 </span>
 					  @endif
 								
-				 <label style="width:100%">Confirme Password<br>
-					<input id="password-confirm" type="password" class="" name="password_confirmation"  placeholder="Confirmatión"  style="width:100%;" required>
-				</label>				
+				 <span>Confirme Password </span>
+					<input id="password-confirm" type="password" name="password_confirmation"  placeholder="Confirmatión" class="form-control" >
+					
+
 			 </div>	
-			 <span style="font-size:0.5rem; color:red;">
-					Password -> debe contener: entre 5-10 caractes Alfa-numericos					
-				</span>	
+			 	
 							
 	<input type="text" name="id_user_created" value="{{ Auth::user()->id }}" style="visibility:hidden"  size="0">
 		
@@ -107,8 +112,12 @@
   </form>
   </div>
 
- 
-		<a href="{{ route('AdmUser') }}" ><img src="{{ asset('images/irAtras.jpg') }}" class="irHome"></a>  
+   <div align="left" style=";">
+	<a href="{{ route('AdmUser') }}" title="ir atras">
+	   <img src="{{ asset('images/icons/back.png') }}"  class="irAtras">
+	</a> 
+ </div>
+
 
  </div>  
 

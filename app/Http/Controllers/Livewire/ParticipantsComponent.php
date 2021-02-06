@@ -59,7 +59,10 @@ class ParticipantsComponent extends Component
 		'telef' => $this->telef,                                          
 		'NroWp' => $this->NroWp		
 		]);
-	
+		if(Auth::user()){
+			$part->user_created = Auth::user()->id;
+			$part->save();		
+		}
 		$this->default();
 		return back()->with('mensaje','Datos Registrados');			
 	}
@@ -85,6 +88,10 @@ class ParticipantsComponent extends Component
 	
 	public function update(){
 		$this->validate(['cedula' => 'required']);
+		if($this->email){
+			$this->validate(['email' => 'email']);
+		}
+
 		$part = Participant::find($this->part_id); 		
 		$part->update([
 			'cedula' => $this->cedula,
@@ -92,8 +99,12 @@ class ParticipantsComponent extends Component
 			'last_name' => $this->last_name, 		
 			'email' => $this->email,
 			'telef' => $this->telef,
-			'NroWp' => $this->NroWp
+			'NroWp' => $this->NroWp,
 		]); 
+		if(Auth::user()){
+			$part->user_updated = Auth::user()->id;
+			$part->save();		
+		}
 
 		$this->default(); 
 		return back()->with('mensaje','Datos Actualizados');	

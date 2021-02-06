@@ -7,9 +7,11 @@
 </head>
 <body>
 
+
+<h2 style="color:blue;">Cursos: {{$curso->title}}</h2>
+
 <h1 align="center">Listado de Inscritos</h1>
-<h2 class="text-primary">Cursos: {{$curso->title}}</h2>
-<table>
+<table style="border-color: black; border: 1px solid;">
 	<head>
 		<tr>
 			<th>Nombre y Apellido</th>

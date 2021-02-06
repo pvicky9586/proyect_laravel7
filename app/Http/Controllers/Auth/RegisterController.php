@@ -38,14 +38,16 @@ class RegisterController extends BaseController
 		return view('auth/AdmUsers/detalle',compact('user'));
 	}
 
-	//public function NewUser(){
-		//return view('auth/AdmUsers/new');
-	//}
+	public function create(){
+		return view('auth/register');
+	}
 
 
 
 
-	public function create(Request $request){
+	public function saveUser(Request $request){
+
+        
 		$request->validate([
         'username' => 'required|min:5|max:10|unique:users',
         'privileges' => 'required',
@@ -53,7 +55,7 @@ class RegisterController extends BaseController
         'password' => 'required|min:5|max:10|confirmed',
     ]); //|alph
         $NewUser = new App\User;
-        //$NewUser->cedula = $request->cedula;
+        // $NewUser->cedula = $request->cedula;
         $NewUser->name = $request->name;
         $NewUser->last_name = $request->last_name;
         $NewUser->username = $request->username;
@@ -63,7 +65,7 @@ class RegisterController extends BaseController
         $NewUser->id_user_created = $request->id_user_created;
 		$NewUser->save();
 		
-		return redirect()->route('AdmUser')->with('mensaje','Usuario Registrado !!!');
+		 return redirect()->route('AdmUser')->with('mensaje','Usuario Registrado !!!');
 	}
 
 

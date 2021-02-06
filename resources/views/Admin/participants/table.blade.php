@@ -43,10 +43,9 @@
 		</table>
      <div style="color:blue;">
 			{{ $parts->links() }}
-     </div>
-         
-		
-     
+     </div> 
+
+  
  </div>
     
   

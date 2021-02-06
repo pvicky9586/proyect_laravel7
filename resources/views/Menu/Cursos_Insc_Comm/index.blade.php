@@ -5,7 +5,7 @@
 	<div class="title" style=" padding-left: 10%;" >
 		<b>Cursos </b>
 	</div>
-	<div align="center" class="h5" style="margin-left: 20%; margin-right: 1%; font: oblique bold 120% cursive;">
+	<div align="center" class="nota-curs">
 		<label >Esta hoja que se abre lleva impresa tu nombre y el mío, con la
 		intención podamos surcar sin líneas no delineadas pero si contenidas.
 		Más que un material para ser visualizado y revisado, nos motiva la
